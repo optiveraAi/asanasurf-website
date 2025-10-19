@@ -47,14 +47,15 @@ export const INTRO = {
 
 export const PACKAGES = {
   heading: "Choose Your Retreat Experience",
-  tagline: "Flexible packages designed to fit your schedule and goals",
+  tagline: "Escape to paradise and discover your perfect balance",
   packages: [
     {
       id: "weekend",
       name: "Weekend Escape",
       duration: "2-3 Days",
       price: "$599",
-      description: "A quick reset for busy lives",
+      image: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=800&q=80",
+      experienceDescription: "Perfect for those seeking a quick reset from the everyday. Immerse yourself in two days of sun, surf, and serenity. Leave feeling refreshed, energized, and reconnected to yourself.",
       features: [
         "2 surf sessions with certified instructor",
         "3 yoga classes (sunrise & sunset)",
@@ -70,7 +71,8 @@ export const PACKAGES = {
       name: "Week of Wellness",
       duration: "7 Days",
       price: "$1,899",
-      description: "Deep dive into transformation",
+      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
+      experienceDescription: "A full week to truly transform. Build your surf skills, deepen your yoga practice, and create lasting memories. This is where real change happens—in the rhythm of the waves and the stillness of your breath.",
       features: [
         "5 surf sessions with progression tracking",
         "Daily yoga classes (2x per day)",
@@ -89,7 +91,8 @@ export const PACKAGES = {
       name: "Custom Experience",
       duration: "Flexible",
       price: "Contact Us",
-      description: "Tailored to your unique needs",
+      image: "https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&w=800&q=80",
+      experienceDescription: "Your retreat, your way. Whether it's a private couples escape, a group celebration, or a personalized wellness journey—we'll craft the perfect experience tailored exactly to your vision and needs.",
       features: [
         "Personalized itinerary",
         "Flexible duration",

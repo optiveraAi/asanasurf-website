@@ -41,7 +41,7 @@ const Introduction: React.FC = () => {
   };
 
   return (
-    <section id="about" className="section-container bg-gradient-to-b from-white to-sand-50">
+    <section id="about" className="section-container bg-cream-100">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -50,10 +50,10 @@ const Introduction: React.FC = () => {
       >
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-sand-900 mb-4">
             {INTRO.heading}
           </h2>
-          <p className="text-xl text-ocean-500 italic font-serif">
+          <p className="text-xl text-ocean-600 italic font-serif">
             {INTRO.tagline}
           </p>
         </motion.div>
@@ -73,7 +73,7 @@ const Introduction: React.FC = () => {
           {/* Right: Text Content */}
           <motion.div variants={itemVariants} className="flex flex-col justify-center space-y-6">
             {INTRO.paragraphs.map((paragraph, index) => (
-              <p key={index} className="text-gray-700 leading-relaxed text-lg">
+              <p key={index} className="text-sand-800 leading-relaxed text-lg">
                 {paragraph}
               </p>
             ))}
@@ -93,12 +93,12 @@ const Introduction: React.FC = () => {
                 <Card className="text-center h-full">
                   <div className="flex flex-col items-center">
                     <div className="w-16 h-16 bg-ocean-100 rounded-full flex items-center justify-center mb-4">
-                      <IconComponent className="w-8 h-8 text-ocean-500" />
+                      <IconComponent className="w-8 h-8 text-ocean-600" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    <h3 className="text-xl font-bold text-sand-900 mb-2">
                       {benefit.title}
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-sand-700">
                       {benefit.description}
                     </p>
                   </div>

@@ -67,7 +67,7 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <section id="gallery" className="section-container bg-gradient-to-b from-sand-50 to-white">
+    <section id="gallery" className="section-container bg-cream-100">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -76,10 +76,10 @@ const Gallery: React.FC = () => {
       >
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-sand-900 mb-4">
             {GALLERY.heading}
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-sand-700">
             {GALLERY.tagline}
           </p>
         </motion.div>
@@ -109,14 +109,14 @@ const Gallery: React.FC = () => {
           variants={itemVariants}
           className="mt-12 text-center"
         >
-          <p className="text-gray-600 mb-4">
+          <p className="text-sand-700 mb-4">
             Follow us on Instagram for daily inspiration and retreat updates
           </p>
           <a
             href="https://instagram.com/asanansurf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-ocean-500 hover:text-ocean-600 font-semibold transition-colors"
+            className="inline-block text-ocean-600 hover:text-ocean-700 font-semibold transition-colors"
           >
             @asanansurf
           </a>

@@ -3,16 +3,16 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { Check, Star } from 'lucide-react';
 import { PACKAGES } from '../../constants/content';
-import Card from '../ui/Card';
 import Button from '../ui/Button';
 
 /**
- * Packages Section with:
- * - Three pricing tiers
- * - Highlighted "Most Popular" package
- * - Feature lists with checkmarks
- * - Call-to-action buttons
- * - Staggered animations
+ * Redesigned Packages Section with:
+ * - Full-width images at top of each card
+ * - Experience description below title
+ * - "What's Included" section with features
+ * - ALL cards same height (equal visual weight)
+ * - Single "Book Now" button below all packages
+ * - Warm, inviting retreat aesthetic
  */
 const Packages: React.FC = () => {
   const containerVariants = {
@@ -35,7 +35,7 @@ const Packages: React.FC = () => {
   };
 
   return (
-    <section id="packages" className="section-container bg-white">
+    <section id="packages" className="section-container bg-cream-200">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -44,89 +44,106 @@ const Packages: React.FC = () => {
       >
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-sand-900 mb-4">
             {PACKAGES.heading}
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-sand-700">
             {PACKAGES.tagline}
           </p>
         </motion.div>
 
-        {/* Packages Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Packages Grid - All Equal Height */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {PACKAGES.packages.map((pkg) => (
-            <motion.div key={pkg.id} variants={itemVariants}>
-              <Card
-                className={`h-full flex flex-col relative ${
+            <motion.div key={pkg.id} variants={itemVariants} className="flex">
+              <div
+                className={`flex flex-col bg-cream-50 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl w-full ${
                   pkg.highlighted
-                    ? 'border-2 border-ocean-500 shadow-2xl scale-105'
+                    ? 'ring-2 ring-ocean-500 relative'
                     : ''
                 }`}
               >
-                {/* Popular Badge */}
+                {/* Popular Badge - Outside Card */}
                 {pkg.badge && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-ocean-500 to-ocean-600 text-white px-6 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-ocean-500 text-white px-6 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
                       <Star className="w-4 h-4 fill-current" />
                       <span className="text-sm font-semibold">{pkg.badge}</span>
                     </div>
                   </div>
                 )}
 
-                <div className="flex-1">
-                  {/* Package Header */}
-                  <div className="text-center mb-6 pt-4">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                      {pkg.name}
-                    </h3>
-                    <p className="text-ocean-500 font-medium mb-4">
-                      {pkg.duration}
-                    </p>
-                    <div className="mb-4">
-                      <span className="text-4xl font-bold text-gray-800">
-                        {pkg.price}
-                      </span>
-                      {pkg.price.includes('$') && (
-                        <span className="text-gray-600 ml-1">/ person</span>
-                      )}
+                {/* Package Image - Full Width */}
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={pkg.image}
+                    alt={pkg.name}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    loading="lazy"
+                  />
+                  {/* Price Overlay on Image */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-sand-900/80 to-transparent p-4">
+                    <div className="flex items-end justify-between">
+                      <div>
+                        <p className="text-sand-200 text-sm font-medium">{pkg.duration}</p>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-3xl font-bold text-white">
+                          {pkg.price}
+                        </span>
+                        {pkg.price.includes('$') && (
+                          <span className="text-white/90 text-sm ml-1">/ person</span>
+                        )}
+                      </div>
                     </div>
-                    <p className="text-gray-600 italic">
-                      {pkg.description}
-                    </p>
                   </div>
-
-                  {/* Features List */}
-                  <ul className="space-y-3 mb-8">
-                    {pkg.features.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-jungle-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
 
-                {/* CTA Button */}
-                <Link to="book" smooth={true} duration={800} offset={-80}>
-                  <Button
-                    variant={pkg.highlighted ? 'primary' : 'secondary'}
-                    className="w-full"
-                  >
-                    {pkg.id === 'custom' ? 'Contact Us' : 'Book Now'}
-                  </Button>
-                </Link>
-              </Card>
+                {/* Card Content */}
+                <div className="flex flex-col flex-1 p-6">
+                  {/* Package Name */}
+                  <h3 className="text-2xl font-bold text-sand-900 mb-3">
+                    {pkg.name}
+                  </h3>
+
+                  {/* Experience Description */}
+                  <p className="text-sand-700 leading-relaxed mb-6 text-base">
+                    {pkg.experienceDescription}
+                  </p>
+
+                  {/* What's Included Section */}
+                  <div className="mt-auto">
+                    <h4 className="text-sm font-semibold text-sand-800 uppercase tracking-wide mb-3">
+                      What's Included
+                    </h4>
+                    <ul className="space-y-2.5">
+                      {pkg.features.map((feature, index) => (
+                        <li key={index} className="flex items-start gap-2.5">
+                          <Check className="w-5 h-5 text-earth-600 flex-shrink-0 mt-0.5" />
+                          <span className="text-sand-700 text-sm leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Additional Info */}
+        {/* Single Book Now Button - Centered Below All Packages */}
         <motion.div
           variants={itemVariants}
-          className="mt-12 text-center text-gray-600"
+          className="text-center"
         >
-          <p className="mb-2">All packages include equipment, instruction, and unforgettable memories.</p>
-          <p>Need something different? We're happy to create a custom package just for you.</p>
+          <Link to="book" smooth={true} duration={800} offset={-80}>
+            <Button variant="primary" className="text-lg px-12 py-4">
+              Book Your Retreat
+            </Button>
+          </Link>
+          <p className="mt-6 text-sand-600 text-sm">
+            All packages include equipment, expert instruction, and unforgettable memories
+          </p>
         </motion.div>
       </motion.div>
     </section>

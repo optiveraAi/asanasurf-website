@@ -11,7 +11,7 @@ import { FOOTER, SITE_NAME, CONTACT } from '../../constants/content';
  */
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gradient-to-b from-sand-50 to-sand-100 border-t border-sand-200">
+    <footer className="bg-sand-200 border-t border-sand-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}

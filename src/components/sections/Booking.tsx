@@ -75,7 +75,7 @@ const Booking: React.FC = () => {
   };
 
   return (
-    <section id="book" className="section-container bg-gradient-to-b from-white to-ocean-50">
+    <section id="book" className="section-container bg-cream-200">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -84,10 +84,10 @@ const Booking: React.FC = () => {
       >
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-sand-900 mb-4">
             {BOOKING.heading}
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-sand-700">
             {BOOKING.tagline}
           </p>
         </div>
@@ -132,7 +132,7 @@ const Booking: React.FC = () => {
           )}
 
           {/* Booking Form */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="bg-cream-50 rounded-2xl shadow-xl p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name */}
               <div>
