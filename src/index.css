@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-800 antialiased;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  /* Custom component classes can go here */
+  .btn-primary {
+    @apply px-8 py-3 bg-ocean-500 text-white rounded-full font-medium
+           transition-all duration-300 hover:bg-ocean-600 hover:scale-105
+           hover:shadow-lg active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 border-2 border-ocean-500 text-ocean-500 rounded-full
+           font-medium transition-all duration-300 hover:bg-ocean-50
+           hover:scale-105 active:scale-95;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-lg p-6 transition-all duration-300
+           hover:shadow-xl hover:-translate-y-1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth scrolling offset for fixed header */
+section {
+  scroll-margin-top: 80px;
+}
