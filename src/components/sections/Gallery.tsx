@@ -77,10 +77,10 @@ const Gallery: React.FC = () => {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-sand-900 mb-4">
-            {GALLERY.heading}
+            {GALLERY.sectionTitle}
           </h2>
           <p className="text-xl text-sand-700">
-            {GALLERY.tagline}
+            {GALLERY.sectionSubtitle}
           </p>
         </motion.div>
 

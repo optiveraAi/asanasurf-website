@@ -85,10 +85,10 @@ const Booking: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-bold text-sand-900 mb-4">
-            {BOOKING.heading}
+            {BOOKING.sectionTitle}
           </h2>
           <p className="text-xl text-sand-700">
-            {BOOKING.tagline}
+            {BOOKING.sectionSubtitle}
           </p>
         </div>
 
@@ -103,10 +103,10 @@ const Booking: React.FC = () => {
               <CheckCircle className="w-6 h-6 text-jungle-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-jungle-800 mb-2">
-                  {BOOKING.success.title}
+                  {BOOKING.form.successMessage.title}
                 </h3>
                 <p className="text-jungle-700">
-                  {BOOKING.success.message}
+                  {BOOKING.form.successMessage.message}
                 </p>
               </div>
             </motion.div>
@@ -122,10 +122,10 @@ const Booking: React.FC = () => {
               <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-red-800 mb-2">
-                  {BOOKING.error.title}
+                  {BOOKING.form.errorMessage.title}
                 </h3>
                 <p className="text-red-700">
-                  {BOOKING.error.message}
+                  {BOOKING.form.errorMessage.message}
                 </p>
               </div>
             </motion.div>
@@ -144,7 +144,7 @@ const Booking: React.FC = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder={BOOKING.form.namePlaceholder}
+                  placeholder={BOOKING.form.fields.name.placeholder}
                   required
                 />
               </div>
@@ -159,7 +159,7 @@ const Booking: React.FC = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder={BOOKING.form.emailPlaceholder}
+                  placeholder={BOOKING.form.fields.email.placeholder}
                   required
                 />
               </div>
@@ -174,14 +174,14 @@ const Booking: React.FC = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder={BOOKING.form.phonePlaceholder}
+                  placeholder={BOOKING.form.fields.phone.placeholder}
                 />
               </div>
 
               {/* Package Selection */}
               <div>
                 <label htmlFor="package" className="block text-sm font-medium text-gray-700 mb-2">
-                  {BOOKING.form.packageLabel} <span className="text-red-500">*</span>
+                  {BOOKING.form.fields.package.label} <span className="text-red-500">*</span>
                 </label>
                 <select
                   name="package"
@@ -192,9 +192,10 @@ const Booking: React.FC = () => {
                            focus:border-ocean-500 focus:outline-none focus:ring-2 focus:ring-ocean-200
                            transition-all duration-200"
                 >
-                  {BOOKING.form.packageOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
+                  <option value="">Choose your retreat package</option>
+                  {BOOKING.form.fields.package.options.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
                     </option>
                   ))}
                 </select>
@@ -212,7 +213,7 @@ const Booking: React.FC = () => {
                     name="dates"
                     value={formData.dates}
                     onChange={handleChange}
-                    placeholder={BOOKING.form.datesPlaceholder}
+                    placeholder={BOOKING.form.fields.dates.placeholder}
                     required
                   />
                 </div>
@@ -227,7 +228,7 @@ const Booking: React.FC = () => {
                     name="guests"
                     value={formData.guests}
                     onChange={handleChange}
-                    placeholder={BOOKING.form.guestsPlaceholder}
+                    placeholder={BOOKING.form.fields.guests.placeholder}
                     required
                   />
                 </div>
@@ -242,7 +243,7 @@ const Booking: React.FC = () => {
                   name="requests"
                   value={formData.requests}
                   onChange={handleChange}
-                  placeholder={BOOKING.form.requestsPlaceholder}
+                  placeholder={BOOKING.form.fields.message.placeholder}
                   rows={5}
                 />
               </div>

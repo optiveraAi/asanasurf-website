@@ -1,25 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Scale, Heart, Users, Palmtree } from 'lucide-react';
-import { INTRO } from '../../constants/content';
+import { MapPin, Waves, Sun, Check } from 'lucide-react';
+import { INTRODUCTION } from '../../constants/content';
 import Card from '../ui/Card';
+import SectionContainer from '../ui/SectionContainer';
 
 /**
  * Introduction Section with:
- * - Brand philosophy and messaging
- * - Benefits grid with icons
+ * - Taghazout location information
+ * - Philosophy on why yoga and surfing work together
+ * - Retreat overview and daily structure
  * - Scroll-triggered animations
- * - Two-column layout on desktop
  */
 const Introduction: React.FC = () => {
-  // Map benefit icons (using Lucide icons, NO emojis!)
-  const icons = {
-    Balance: Scale,
-    Transformation: Heart,
-    Community: Users,
-    Nature: Palmtree,
-  };
-
   // Animation variants for scroll reveal
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -41,7 +34,7 @@ const Introduction: React.FC = () => {
   };
 
   return (
-    <section id="about" className="section-container bg-cream-100">
+    <SectionContainer id="about" background="cream-100">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -51,64 +44,105 @@ const Introduction: React.FC = () => {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-sand-900 mb-4">
-            {INTRO.heading}
+            {INTRODUCTION.sectionTitle}
           </h2>
-          <p className="text-xl text-ocean-600 italic font-serif">
-            {INTRO.tagline}
+          <p className="text-xl text-ocean-600 italic font-serif flex items-center justify-center gap-2">
+            <MapPin className="w-5 h-5" />
+            {INTRODUCTION.tagline}
           </p>
         </motion.div>
 
-        {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        {/* Location Section */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-20">
           {/* Left: Image */}
           <motion.div variants={itemVariants} className="relative">
             <img
-              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80"
-              alt="Yoga on the beach at sunset"
+              src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=800&q=80"
+              alt="Colorful streets of Taghazout, Morocco"
               className="w-full h-full object-cover rounded-2xl shadow-xl"
               loading="lazy"
             />
           </motion.div>
 
-          {/* Right: Text Content */}
+          {/* Right: Location Info */}
           <motion.div variants={itemVariants} className="flex flex-col justify-center space-y-6">
-            {INTRO.paragraphs.map((paragraph, index) => (
-              <p key={index} className="text-sand-800 leading-relaxed text-lg">
-                {paragraph}
-              </p>
-            ))}
+            <h3 className="text-3xl font-bold text-sand-900">{INTRODUCTION.location.title}</h3>
+            <p className="text-sand-800 leading-relaxed text-lg">
+              {INTRODUCTION.location.description}
+            </p>
+            <ul className="space-y-3">
+              {INTRODUCTION.location.highlights.map((highlight, index) => (
+                <li key={index} className="flex items-start gap-3 text-sand-800">
+                  <Check className="w-5 h-5 text-ocean-600 flex-shrink-0 mt-1" />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </div>
 
-        {/* Benefits Grid */}
-        <motion.div
-          variants={containerVariants}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {INTRO.benefits.map((benefit) => {
-            const IconComponent = icons[benefit.title as keyof typeof icons];
+        {/* Philosophy Section */}
+        <motion.div variants={itemVariants} className="mb-20">
+          <Card background="sand" padding="lg">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-sand-900 mb-4">
+                {INTRODUCTION.philosophy.title}
+              </h3>
+              <p className="text-sand-800 text-lg leading-relaxed max-w-3xl mx-auto">
+                {INTRODUCTION.philosophy.description}
+              </p>
+            </div>
 
-            return (
-              <motion.div key={benefit.title} variants={itemVariants}>
-                <Card className="text-center h-full">
-                  <div className="flex flex-col items-center">
-                    <div className="w-16 h-16 bg-ocean-100 rounded-full flex items-center justify-center mb-4">
-                      <IconComponent className="w-8 h-8 text-ocean-600" />
-                    </div>
-                    <h3 className="text-xl font-bold text-sand-900 mb-2">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-sand-700">
-                      {benefit.description}
-                    </p>
+            <div className="grid md:grid-cols-3 gap-8">
+              {INTRODUCTION.philosophy.points.map((point, index) => (
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    {index === 0 && <Waves className="w-8 h-8 text-ocean-600" />}
+                    {index === 1 && <Sun className="w-8 h-8 text-ocean-600" />}
+                    {index === 2 && <Check className="w-8 h-8 text-ocean-600" />}
                   </div>
-                </Card>
-              </motion.div>
-            );
-          })}
+                  <h4 className="text-xl font-bold text-sand-900 mb-2">{point.title}</h4>
+                  <p className="text-sand-700">{point.description}</p>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </motion.div>
+
+        {/* Retreat Overview */}
+        <motion.div variants={itemVariants}>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Daily Structure */}
+            <div>
+              <h3 className="text-3xl font-bold text-sand-900 mb-4">
+                {INTRODUCTION.retreatOverview.title}
+              </h3>
+              <p className="text-sand-800 text-lg leading-relaxed mb-6">
+                {INTRODUCTION.retreatOverview.description}
+              </p>
+              <ul className="space-y-3">
+                {INTRODUCTION.retreatOverview.dailyStructure.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3 text-sand-800">
+                    <Check className="w-5 h-5 text-ocean-600 flex-shrink-0 mt-1" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right: Image */}
+            <div className="relative">
+              <img
+                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80"
+                alt="Sunrise yoga session on the beach"
+                className="w-full h-full object-cover rounded-2xl shadow-xl"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </motion.div>
       </motion.div>
-    </section>
+    </SectionContainer>
   );
 };
 

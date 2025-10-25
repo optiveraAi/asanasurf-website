@@ -30,13 +30,13 @@ const Footer: React.FC = () => {
             <h3 className="font-serif font-semibold text-gray-800 mb-3">Contact</h3>
             <div className="space-y-2 text-gray-600">
               <a
-                href={`mailto:${CONTACT.email}`}
+                href={`mailto:${CONTACT.info.email}`}
                 className="flex items-center gap-2 justify-center hover:text-ocean-500 transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                {CONTACT.email}
+                {CONTACT.info.email}
               </a>
-              <p>{CONTACT.phone}</p>
+              <p>{CONTACT.info.phone}</p>
             </div>
           </div>
 
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
             <h3 className="font-serif font-semibold text-gray-800 mb-3">Follow Us</h3>
             <div className="flex gap-4 justify-center md:justify-end">
               <a
-                href={CONTACT.social.instagram}
+                href="https://instagram.com/asanandsurf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 text-gray-600 hover:text-ocean-500 transition-colors"
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
                 <Instagram className="w-6 h-6" />
               </a>
               <a
-                href={CONTACT.social.facebook}
+                href="https://facebook.com/asanandsurf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 text-gray-600 hover:text-ocean-500 transition-colors"
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div className="pt-8 border-t border-sand-200 text-center text-gray-600 text-sm">
-          {FOOTER.copyright}
+          {FOOTER.legal.copyright}
         </div>
       </div>
     </footer>

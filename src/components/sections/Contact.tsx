@@ -72,10 +72,10 @@ const Contact: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-bold text-sand-900 mb-4">
-            {CONTACT.heading}
+            {CONTACT.sectionTitle}
           </h2>
           <p className="text-xl text-sand-700">
-            {CONTACT.tagline}
+            {CONTACT.sectionSubtitle}
           </p>
         </div>
 
@@ -83,7 +83,7 @@ const Contact: React.FC = () => {
           {/* Left: Contact Info */}
           <div>
             <p className="text-gray-700 text-lg mb-8 leading-relaxed">
-              {CONTACT.description}
+              We'd love to hear from you! Whether you have questions about our retreats, want to discuss a custom package, or just want to learn more about Asana n Surf, reach out and we'll get back to you as soon as possible.
             </p>
 
             {/* Contact Details */}
@@ -96,10 +96,10 @@ const Contact: React.FC = () => {
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-1">Email</h3>
                   <a
-                    href={`mailto:${CONTACT.email}`}
+                    href={`mailto:${CONTACT.info.email}`}
                     className="text-ocean-500 hover:text-ocean-600 transition-colors"
                   >
-                    {CONTACT.email}
+                    {CONTACT.info.email}
                   </a>
                 </div>
               </div>
@@ -112,10 +112,10 @@ const Contact: React.FC = () => {
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-1">Phone</h3>
                   <a
-                    href={`tel:${CONTACT.phone}`}
+                    href={`tel:${CONTACT.info.phone}`}
                     className="text-gray-700 hover:text-ocean-500 transition-colors"
                   >
-                    {CONTACT.phone}
+                    {CONTACT.info.phone}
                   </a>
                 </div>
               </div>
@@ -129,7 +129,7 @@ const Contact: React.FC = () => {
                   <h3 className="font-semibold text-gray-800 mb-2">Follow Us</h3>
                   <div className="flex gap-4">
                     <a
-                      href={CONTACT.social.instagram}
+                      href="https://instagram.com/asanandsurf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 hover:text-ocean-500 transition-colors"
@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
                       <Instagram className="w-6 h-6" />
                     </a>
                     <a
-                      href={CONTACT.social.facebook}
+                      href="https://facebook.com/asanandsurf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 hover:text-ocean-500 transition-colors"
@@ -192,7 +192,7 @@ const Contact: React.FC = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder={CONTACT.form.namePlaceholder}
+                    placeholder={CONTACT.form.fields.name.placeholder}
                     required
                   />
                 </div>
@@ -207,7 +207,7 @@ const Contact: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder={CONTACT.form.emailPlaceholder}
+                    placeholder={CONTACT.form.fields.email.placeholder}
                     required
                   />
                 </div>
@@ -221,7 +221,7 @@ const Contact: React.FC = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder={CONTACT.form.messagePlaceholder}
+                    placeholder={CONTACT.form.fields.message.placeholder}
                     rows={5}
                     required
                   />

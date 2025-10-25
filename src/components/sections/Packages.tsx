@@ -45,10 +45,10 @@ const Packages: React.FC = () => {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-sand-900 mb-4">
-            {PACKAGES.heading}
+            {PACKAGES.sectionTitle}
           </h2>
           <p className="text-xl text-sand-700">
-            {PACKAGES.tagline}
+            {PACKAGES.sectionSubtitle}
           </p>
         </motion.div>
 
@@ -58,7 +58,7 @@ const Packages: React.FC = () => {
             <motion.div key={pkg.id} variants={itemVariants} className="flex">
               <div
                 className={`flex flex-col bg-cream-50 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl w-full ${
-                  pkg.highlighted
+                  pkg.featured
                     ? 'ring-2 ring-ocean-500 relative'
                     : ''
                 }`}
