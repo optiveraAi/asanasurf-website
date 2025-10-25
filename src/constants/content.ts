@@ -74,78 +74,160 @@ export const INTRODUCTION = {
   },
 } as const;
 
-// Packages Section
+// Packages Section - Immersive Experience-Focused Design
 export const PACKAGES = {
-  sectionTitle: 'Choose Your Journey',
-  sectionSubtitle: 'All packages include accommodation at our Taghazout surf camp, meals at local restaurants, and unforgettable experiences',
+  sectionTitle: 'Your Taghazout Experience Awaits',
+  sectionSubtitle: 'Two transformative journeys. One unforgettable destination.',
 
   packages: [
     {
-      id: 'yoga-surf-balance',
-      name: 'Yoga & Surf Balance',
-      tagline: 'The Complete Experience',
-      duration: '7 Days',
-      price: 'From €1,200',
-      featured: false,
-      description: 'Immerse yourself in the perfect blend of yoga and surfing. This comprehensive program is designed for those seeking true balance between adventure and restoration.',
-      includes: [
-        'Comprehensive daily yoga program (Vinyasa, Pranayama, Restorative, Yin, Yoga Nidra, Meditation)',
-        'Daily surf sessions with qualified instructors',
-        'Twice-daily yoga practice adapted to all levels',
-        'All surfboards and wetsuits provided',
-        'Accommodation in shared rooms at surf camp',
-        'Daily meals at local Moroccan restaurants',
-        'Airport transfers',
-      ],
-      ideal: 'Perfect for those new to either practice or seeking to deepen both',
-    },
-    {
-      id: 'surf-immersion',
-      name: 'Surf Immersion',
-      tagline: 'All-Inclusive Wave Riding',
+      id: 'surf-focused',
+      name: 'Surf Focused Experience',
+      headline: 'Master the Waves',
+      tagline: 'All-Inclusive Surf Adventure',
       duration: '7 Days',
       price: 'From €1,400',
-      featured: true, // MOST POPULAR
-      badge: 'Most Popular',
-      description: 'An all-inclusive, worry-free surf experience designed to take your wave riding to the next level. Complemented with yoga to enhance performance and recovery.',
-      includes: [
-        'Intensive surf coaching suited to your level',
-        'Learn fundamentals: board selection, wave reading, ocean safety',
-        'Daily surf fitness and yoga routines',
-        'Video analysis of your surf sessions',
-        'All equipment included (boards, wetsuits, rash guards)',
-        'Accommodation in shared rooms at surf camp',
-        'Daily meals at local restaurants',
-        'Airport transfers',
+      priceNote: 'per person',
+      featured: false,
+      badge: undefined,
+
+      // Hero imagery
+      heroImage: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1920&q=80',
+      lifestyleImages: [
+        'https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1515238152791-8216bfdf89a7?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1502933691298-84fc14542831?auto=format&fit=crop&w=800&q=80',
       ],
-      ideal: 'Perfect for surf enthusiasts wanting to rapidly improve their skills',
+
+      story: 'Immerse yourself in the ultimate surf adventure on Morocco\'s stunning Atlantic coast. From your first paddle out to riding your best wave, every moment is designed to accelerate your surf journey. This is more than lessons—it\'s a complete transformation into the surf lifestyle.',
+
+      highlights: [
+        {
+          title: 'Master the Fundamentals',
+          description: 'From choosing the right board to reading wave patterns, learn everything you need to become a confident surfer',
+        },
+        {
+          title: 'Daily Surf Sessions',
+          description: 'Multiple sessions each day with professional instructors who know Taghazout\'s breaks intimately',
+        },
+        {
+          title: 'Video Analysis',
+          description: 'See yourself surf and get personalized feedback to accelerate your progression',
+        },
+        {
+          title: 'Surf Fitness & Yoga',
+          description: 'Build strength, flexibility, and endurance specifically for surfing performance',
+        },
+      ],
+
+      included: [
+        'All surf equipment (boards, wetsuits, rash guards)',
+        'Professional surf coaching and video analysis',
+        'Accommodation at our Taghazout surf camp',
+        'All meals at local restaurants',
+        'Airport transfers from Agadir',
+        'Daily surf fitness and yoga sessions',
+      ],
+
+      experiences: [
+        {
+          title: 'Therapeutic Massage',
+          description: 'Soothe sore muscles after intense surf sessions',
+        },
+        {
+          title: 'Traditional Hammam',
+          description: 'Experience authentic Moroccan steam bath rituals',
+        },
+        {
+          title: 'Souk El Had Market',
+          description: 'Explore one of Africa\'s largest and most vibrant markets',
+        },
+        {
+          title: 'Paradise Valley',
+          description: 'Day trip to stunning natural rock pools in the Atlas Mountains',
+        },
+      ],
+
+      transformation: undefined,
+      cta: 'Book Surf Experience',
     },
     {
-      id: 'custom-experience',
-      name: 'Custom Experience',
-      tagline: 'Your Retreat, Your Way',
-      duration: 'Flexible',
-      price: 'Contact Us',
-      featured: false,
-      description: 'Create your perfect retreat with a tailored experience designed around your goals, schedule, and preferences. Ideal for groups, special occasions, or those with specific focus areas.',
-      includes: [
-        'Customizable duration (3-14+ days)',
-        'Personalized mix of yoga and surf based on your goals',
-        'Private or semi-private instruction available',
-        'Flexible accommodation options',
-        'Customizable meal plans and dietary requirements',
-        'Add-on experiences (massage, hammam, excursions)',
-        'Perfect for groups, couples, or solo travelers',
+      id: 'yoga-surf-retreat',
+      name: 'Yoga & Surf Retreat',
+      headline: 'Find Your Balance',
+      tagline: 'The Complete 7-Day Transformation',
+      duration: '7 Days',
+      price: 'From €1,200',
+      priceNote: 'per person',
+      featured: true,
+      badge: 'Most Popular',
+
+      // Hero imagery
+      heroImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1920&q=80',
+      lifestyleImages: [
+        'https://images.unsplash.com/photo-1588286840104-8957b019727f?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
       ],
-      ideal: 'Perfect for groups, special occasions, or those wanting a personalized retreat',
+
+      story: 'Experience the transformative power of combining active adventure with mindful restoration. This 7-day journey weaves together the exhilaration of surfing with the centering practice of yoga, creating a holistic experience that energizes your body while calming your mind.',
+
+      highlights: [
+        {
+          title: 'Twice-Daily Yoga',
+          description: 'Morning energizing flows and evening restorative practices, all adapted to your level',
+        },
+        {
+          title: 'Comprehensive Yoga Styles',
+          description: 'Creative Vinyasa, pranayama breathwork, restorative poses, yin yoga, yoga nidra, and meditation',
+        },
+        {
+          title: 'Progressive Surf Program',
+          description: 'Daily surf lessons that build your skills while the ocean becomes your meditation',
+        },
+        {
+          title: 'Mind-Body Integration',
+          description: 'Learn how yoga enhances your surfing and vice versa, creating a powerful synergy',
+        },
+      ],
+
+      included: [
+        '7-day progressive yoga retreat (twice daily sessions)',
+        'Creative Vinyasa, pranayama, restorative, yin, yoga nidra, meditation',
+        'Daily surf lessons with qualified instructors',
+        'All surf equipment (boards, wetsuits)',
+        'Accommodation at our surf camp',
+        'All meals at local restaurants',
+        'Airport transfers from Agadir',
+      ],
+
+      experiences: undefined,
+
+      transformation: {
+        title: 'Your 7-Day Journey',
+        description: 'This retreat is designed for complete beginners through experienced practitioners. Whether you\'ve never stood on a surfboard or held a yoga pose, our instructors meet you exactly where you are and guide your growth.',
+        dayInLife: [
+          'Morning yoga as the sun rises over the Atlantic',
+          'Nourishing breakfast with ocean views',
+          'Surf session on Taghazout\'s perfect breaks',
+          'Afternoon to explore, rest, or add experiences',
+          'Evening restorative yoga and meditation',
+          'Dinner at local Moroccan restaurants',
+          'Sunset walks and connection with fellow retreaters',
+        ],
+      },
+
+      cta: 'Book Yoga & Surf Retreat',
     },
   ],
 
-  cta: {
-    text: 'Book Your Retreat',
+  finalCta: {
+    title: 'Ready to Transform Your Life?',
+    subtitle: 'Join us in Taghazout for the experience of a lifetime',
+    buttonText: 'Book Your Retreat',
     scrollTo: 'booking',
   },
-} as const;
+};
 
 // Experiences/What's Included Section
 export const EXPERIENCES = {
@@ -338,9 +420,8 @@ export const BOOKING = {
         placeholder: 'Choose your retreat package',
         required: true,
         options: [
-          'Yoga & Surf Balance (7 Days)',
-          'Surf Immersion (7 Days)',
-          'Custom Experience (Flexible)',
+          'Yoga & Surf Retreat (7 Days)',
+          'Surf Focused Experience (7 Days)',
         ],
       },
       dates: {
