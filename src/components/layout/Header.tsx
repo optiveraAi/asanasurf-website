@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-scroll';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Waves } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SITE_NAME, NAV_LINKS } from '../../constants/content';
@@ -7,13 +7,15 @@ import { SITE_NAME, NAV_LINKS } from '../../constants/content';
 /**
  * Header component with:
  * - Fixed navigation that changes on scroll
- * - Smooth scroll to sections
+ * - Multi-page navigation with React Router
  * - Mobile hamburger menu with animation
  * - Logo with wave icon (no emojis!)
+ * - Active page highlighting
  */
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   // Handle scroll effect for header background
   useEffect(() => {
@@ -37,6 +39,19 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [isMobileMenuOpen]);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  // Check if link is active
+  const isActive = (href: string) => {
+    if (href === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(href);
+  };
+
   return (
     <>
       <header
@@ -48,9 +63,7 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link
-              to="home"
-              smooth={true}
-              duration={800}
+              to="/"
               className="flex items-center gap-2 cursor-pointer group"
             >
               <Waves className="w-8 h-8 text-ocean-500 group-hover:text-ocean-600 transition-colors" />
@@ -64,16 +77,19 @@ const Header: React.FC = () => {
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.id}
-                  to={link.id}
-                  smooth={true}
-                  duration={800}
-                  spy={true}
-                  offset={-80}
-                  className="text-gray-700 hover:text-ocean-500 font-medium cursor-pointer
-                           transition-colors duration-200 relative group"
+                  to={link.href}
+                  className={`font-medium cursor-pointer transition-colors duration-200 relative group ${
+                    isActive(link.href)
+                      ? 'text-ocean-500'
+                      : 'text-gray-700 hover:text-ocean-500'
+                  }`}
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-ocean-500 group-hover:w-full transition-all duration-300" />
+                  <span
+                    className={`absolute bottom-0 left-0 h-0.5 bg-ocean-500 transition-all duration-300 ${
+                      isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
+                  />
                 </Link>
               ))}
             </div>
@@ -144,13 +160,12 @@ const Header: React.FC = () => {
                       transition={{ delay: index * 0.1 }}
                     >
                       <Link
-                        to={link.id}
-                        smooth={true}
-                        duration={800}
-                        offset={-80}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block text-lg font-medium text-gray-700 hover:text-ocean-500
-                                 transition-colors duration-200 cursor-pointer py-2"
+                        to={link.href}
+                        className={`block text-lg font-medium transition-colors duration-200 cursor-pointer py-2 ${
+                          isActive(link.href)
+                            ? 'text-ocean-500'
+                            : 'text-gray-700 hover:text-ocean-500'
+                        }`}
                       >
                         {link.label}
                       </Link>

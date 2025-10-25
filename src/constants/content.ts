@@ -7,16 +7,13 @@
 
 export const SITE_NAME = "Asana n Surf";
 
-// Navigation Links
+// Navigation Links - Multi-page structure
 export const NAV_LINKS = [
-  { id: 'home', label: 'Home', href: '#home' },
-  { id: 'about', label: 'About', href: '#about' },
-  { id: 'packages', label: 'Packages', href: '#packages' },
-  { id: 'experiences', label: 'Experiences', href: '#experiences' },
-  { id: 'gallery', label: 'Gallery', href: '#gallery' },
-  { id: 'booking', label: 'Book Now', href: '#booking' },
-  { id: 'contact', label: 'Contact', href: '#contact' },
-] as const;
+  { id: 'home', label: 'Home', href: '/' },
+  { id: 'packages', label: 'Packages', href: '/packages' },
+  { id: 'gallery', label: 'Gallery', href: '/gallery' },
+  { id: 'book', label: 'Book Now', href: '/book' },
+];
 
 // Hero Section
 export const HERO = {
@@ -225,7 +222,7 @@ export const PACKAGES = {
     title: 'Ready to Transform Your Life?',
     subtitle: 'Join us in Taghazout for the experience of a lifetime',
     buttonText: 'Book Your Retreat',
-    scrollTo: 'booking',
+    linkTo: '/book',
   },
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import { Check, Star, Sparkles, Coffee } from 'lucide-react';
 import { PACKAGES } from '../../constants/content';
 import Button from '../ui/Button';
@@ -291,7 +291,7 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <Link to="booking" smooth={true} duration={800} offset={-80}>
+          <Link to="/book">
             <Button variant="primary" className="text-lg px-12 py-4">
               {pkg.cta}
             </Button>
@@ -346,7 +346,7 @@ const Packages: React.FC = () => {
           <p className="text-xl lg:text-2xl text-white/90 mb-8">
             {PACKAGES.finalCta.subtitle}
           </p>
-          <Link to={PACKAGES.finalCta.scrollTo} smooth={true} duration={800} offset={-80}>
+          <Link to={PACKAGES.finalCta.linkTo}>
             <Button
               variant="secondary"
               className="text-lg px-12 py-4 bg-white text-ocean-600 hover:bg-cream-50"

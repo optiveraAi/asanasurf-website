@@ -1,28 +1,41 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { initEmailJS } from './utils/emailService';
 
 // Layout Components
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 
-// Section Components
-import Hero from './components/sections/Hero';
-import Introduction from './components/sections/Introduction';
-import Packages from './components/sections/Packages';
-import Gallery from './components/sections/Gallery';
-import Booking from './components/sections/Booking';
-import Contact from './components/sections/Contact';
+// Pages
+import HomePage from './pages/HomePage';
+import PackagesPage from './pages/PackagesPage';
+import GalleryPage from './pages/GalleryPage';
+import BookPage from './pages/BookPage';
+
+/**
+ * ScrollToTop Component
+ * Scrolls to top of page on route change
+ */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 /**
  * Main App Component
  *
- * Single-page application structure with:
- * - Fixed header navigation
- * - Smooth scrolling between sections
- * - All main content sections
- * - Footer
+ * Multi-page application structure with:
+ * - React Router for navigation
+ * - Fixed header navigation across all pages
+ * - Page-specific content
+ * - Footer on all pages
  *
- * Built with React, TypeScript, Tailwind CSS, and Framer Motion
+ * Built with React, TypeScript, Tailwind CSS, Framer Motion, and React Router
  */
 function App() {
   // Initialize EmailJS on component mount
@@ -31,23 +44,27 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {/* Fixed Navigation Header */}
-      <Header />
+    <Router>
+      <div className="App">
+        <ScrollToTop />
 
-      {/* Main Content Sections */}
-      <main>
-        <Hero />
-        <Introduction />
-        <Packages />
-        <Gallery />
-        <Booking />
-        <Contact />
-      </main>
+        {/* Fixed Navigation Header */}
+        <Header />
 
-      {/* Footer */}
-      <Footer />
-    </div>
+        {/* Main Content - Route-based Pages */}
+        <main className="min-h-screen">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/packages" element={<PackagesPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/book" element={<BookPage />} />
+          </Routes>
+        </main>
+
+        {/* Footer */}
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
