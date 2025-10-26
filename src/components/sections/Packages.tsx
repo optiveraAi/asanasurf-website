@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Check, Star, Sparkles, Coffee } from 'lucide-react';
+import { Check, Star, Sparkles, Coffee, Waves, Flower2, Users, Utensils, Bed, MapPin, ShoppingBag, Mountain, Droplets } from 'lucide-react';
 import { PACKAGES } from '../../constants/content';
 import Button from '../ui/Button';
 
@@ -22,6 +22,46 @@ interface PackageSectionProps {
   pkg: typeof PACKAGES.packages[0];
   index: number;
 }
+
+/**
+ * Helper function to get the appropriate icon for an included item
+ */
+const getIconForIncludedItem = (item: string) => {
+  const itemLower = item.toLowerCase();
+
+  if (itemLower.includes('surf') || itemLower.includes('board')) {
+    return <Waves className="w-6 h-6 text-ocean-500" strokeWidth={1.5} />;
+  } else if (itemLower.includes('yoga') || itemLower.includes('massage') || itemLower.includes('treatment')) {
+    return <Flower2 className="w-6 h-6 text-lavender-500" strokeWidth={1.5} />;
+  } else if (itemLower.includes('meal') || itemLower.includes('breakfast') || itemLower.includes('lunch') || itemLower.includes('dinner')) {
+    return <Utensils className="w-6 h-6 text-sand-600" strokeWidth={1.5} />;
+  } else if (itemLower.includes('accommodation') || itemLower.includes('night')) {
+    return <Bed className="w-6 h-6 text-sand-600" strokeWidth={1.5} />;
+  } else if (itemLower.includes('transport') || itemLower.includes('transfer') || itemLower.includes('airport') || itemLower.includes('beach')) {
+    return <MapPin className="w-6 h-6 text-jungle-500" strokeWidth={1.5} />;
+  } else if (itemLower.includes('guide') || itemLower.includes('team') || itemLower.includes('24/7')) {
+    return <Users className="w-6 h-6 text-ocean-500" strokeWidth={1.5} />;
+  } else {
+    return <Check className="w-6 h-6 text-ocean-500" strokeWidth={1.5} />;
+  }
+};
+
+/**
+ * Helper function to get the appropriate icon for an experience
+ */
+const getIconForExperience = (title: string) => {
+  const titleLower = title.toLowerCase();
+
+  if (titleLower.includes('souk') || titleLower.includes('market')) {
+    return <ShoppingBag className="w-6 h-6 text-white" strokeWidth={1.5} />;
+  } else if (titleLower.includes('valley') || titleLower.includes('mountain')) {
+    return <Mountain className="w-6 h-6 text-white" strokeWidth={1.5} />;
+  } else if (titleLower.includes('hammam') || titleLower.includes('spa')) {
+    return <Droplets className="w-6 h-6 text-white" strokeWidth={1.5} />;
+  } else {
+    return <Sparkles className="w-6 h-6 text-white" strokeWidth={1.5} />;
+  }
+};
 
 /**
  * Individual Package Section - Full-Width Immersive Experience
@@ -72,6 +112,19 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
                   <span className="text-sm font-semibold">{pkg.badge}</span>
                 </div>
               )}
+
+              {/* Floating Icon */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="mb-6"
+              >
+                {index === 0 ? (
+                  <Waves className="w-16 h-16 text-white drop-shadow-lg" strokeWidth={1.5} />
+                ) : (
+                  <Flower2 className="w-16 h-16 text-white drop-shadow-lg" strokeWidth={1.5} />
+                )}
+              </motion.div>
 
               {/* Headline */}
               <h2 className="text-5xl lg:text-7xl font-bold text-white mb-4 drop-shadow-lg">
@@ -199,7 +252,9 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
                 className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="flex items-start gap-4">
-                  <Check className="w-6 h-6 text-ocean-500 flex-shrink-0 mt-1" />
+                  <div className="flex-shrink-0 mt-1">
+                    {getIconForIncludedItem(item)}
+                  </div>
                   <span className="text-sand-800 leading-relaxed">{item}</span>
                 </div>
               </motion.div>
@@ -233,7 +288,7 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
                   className="bg-gradient-to-br from-ocean-50 to-cream-100 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300"
                 >
                   <div className="w-12 h-12 bg-ocean-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Sparkles className="w-6 h-6 text-white" />
+                    {getIconForExperience(exp.title)}
                   </div>
                   <h4 className="text-lg font-bold text-sand-900 mb-2">
                     {exp.title}

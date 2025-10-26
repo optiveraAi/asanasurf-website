@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Waves, Sun, Check } from 'lucide-react';
+import { MapPin, Waves, Check, Heart, Users } from 'lucide-react';
 import { INTRODUCTION } from '../../constants/content';
 import Card from '../ui/Card';
 import SectionContainer from '../ui/SectionContainer';
@@ -84,22 +84,39 @@ const Introduction: React.FC = () => {
         {/* Philosophy Section */}
         <motion.div variants={itemVariants} className="mb-20">
           <Card background="sand" padding="lg">
-            <div className="text-center mb-8">
+            {/* Large Wave Icon Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-8"
+            >
+              <div className="flex justify-center mb-6">
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Waves className="w-12 h-12 text-ocean-500" strokeWidth={1.5} />
+                </motion.div>
+              </div>
               <h3 className="text-3xl font-bold text-sand-900 mb-4">
                 {INTRODUCTION.philosophy.title}
               </h3>
               <p className="text-sand-800 text-lg leading-relaxed max-w-3xl mx-auto">
                 {INTRODUCTION.philosophy.description}
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {INTRODUCTION.philosophy.points.map((point, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    {index === 0 && <Waves className="w-8 h-8 text-ocean-600" />}
-                    {index === 1 && <Sun className="w-8 h-8 text-ocean-600" />}
-                    {index === 2 && <Check className="w-8 h-8 text-ocean-600" />}
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${
+                    index === 0 ? 'bg-ocean-100' : index === 1 ? 'bg-lavender-100' : 'bg-jungle-100'
+                  }`}>
+                    {index === 0 && <Waves className="w-8 h-8 text-ocean-600" strokeWidth={1.5} />}
+                    {index === 1 && <Heart className="w-8 h-8 text-lavender-600" strokeWidth={1.5} />}
+                    {index === 2 && <Users className="w-8 h-8 text-jungle-600" strokeWidth={1.5} />}
                   </div>
                   <h4 className="text-xl font-bold text-sand-900 mb-2">{point.title}</h4>
                   <p className="text-sand-700">{point.description}</p>
