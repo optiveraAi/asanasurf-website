@@ -152,7 +152,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFirst }) => {
  */
 const PackagePreview: React.FC = () => {
   return (
-    <section className="bg-gradient-to-br from-cream-50 via-cream-100 to-sand-50 py-24 lg:py-32">
+    <section id="packages" className="bg-gradient-to-br from-cream-50 via-cream-100 to-sand-50 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div

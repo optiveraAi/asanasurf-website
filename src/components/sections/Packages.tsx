@@ -25,41 +25,43 @@ interface PackageSectionProps {
 
 /**
  * Helper function to get the appropriate icon for an included item
+ * Standard size: 32px (w-8 h-8)
  */
 const getIconForIncludedItem = (item: string) => {
   const itemLower = item.toLowerCase();
 
   if (itemLower.includes('surf') || itemLower.includes('board')) {
-    return <Waves className="w-6 h-6 text-ocean-500" strokeWidth={1.5} />;
+    return <Waves className="w-8 h-8 text-ocean-500" strokeWidth={1.5} />;
   } else if (itemLower.includes('yoga') || itemLower.includes('massage') || itemLower.includes('treatment')) {
-    return <Flower2 className="w-6 h-6 text-lavender-500" strokeWidth={1.5} />;
+    return <Flower2 className="w-8 h-8 text-lavender-500" strokeWidth={1.5} />;
   } else if (itemLower.includes('meal') || itemLower.includes('breakfast') || itemLower.includes('lunch') || itemLower.includes('dinner')) {
-    return <Utensils className="w-6 h-6 text-sand-600" strokeWidth={1.5} />;
+    return <Utensils className="w-8 h-8 text-sand-600" strokeWidth={1.5} />;
   } else if (itemLower.includes('accommodation') || itemLower.includes('night')) {
-    return <Bed className="w-6 h-6 text-sand-600" strokeWidth={1.5} />;
+    return <Bed className="w-8 h-8 text-sand-600" strokeWidth={1.5} />;
   } else if (itemLower.includes('transport') || itemLower.includes('transfer') || itemLower.includes('airport') || itemLower.includes('beach')) {
-    return <MapPin className="w-6 h-6 text-jungle-500" strokeWidth={1.5} />;
+    return <MapPin className="w-8 h-8 text-jungle-500" strokeWidth={1.5} />;
   } else if (itemLower.includes('guide') || itemLower.includes('team') || itemLower.includes('24/7')) {
-    return <Users className="w-6 h-6 text-ocean-500" strokeWidth={1.5} />;
+    return <Users className="w-8 h-8 text-ocean-500" strokeWidth={1.5} />;
   } else {
-    return <Check className="w-6 h-6 text-ocean-500" strokeWidth={1.5} />;
+    return <Check className="w-8 h-8 text-ocean-500" strokeWidth={1.5} />;
   }
 };
 
 /**
  * Helper function to get the appropriate icon for an experience
+ * Standard size: 32px (w-8 h-8)
  */
 const getIconForExperience = (title: string) => {
   const titleLower = title.toLowerCase();
 
   if (titleLower.includes('souk') || titleLower.includes('market')) {
-    return <ShoppingBag className="w-6 h-6 text-white" strokeWidth={1.5} />;
+    return <ShoppingBag className="w-8 h-8 text-white" strokeWidth={1.5} />;
   } else if (titleLower.includes('valley') || titleLower.includes('mountain')) {
-    return <Mountain className="w-6 h-6 text-white" strokeWidth={1.5} />;
+    return <Mountain className="w-8 h-8 text-white" strokeWidth={1.5} />;
   } else if (titleLower.includes('hammam') || titleLower.includes('spa')) {
-    return <Droplets className="w-6 h-6 text-white" strokeWidth={1.5} />;
+    return <Droplets className="w-8 h-8 text-white" strokeWidth={1.5} />;
   } else {
-    return <Sparkles className="w-6 h-6 text-white" strokeWidth={1.5} />;
+    return <Sparkles className="w-8 h-8 text-white" strokeWidth={1.5} />;
   }
 };
 
@@ -151,13 +153,13 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
       </motion.div>
 
       {/* Story Section */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7 }}
-          className="max-w-4xl mx-auto text-center mb-20"
+          className="max-w-4xl mx-auto text-center mb-24"
         >
           <p className="text-xl lg:text-2xl text-sand-800 leading-relaxed">
             {pkg.story}
@@ -165,7 +167,7 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
         </motion.div>
 
         {/* Split Layout: Highlights & Lifestyle Images */}
-        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 mb-20 ${isEven ? '' : 'lg:grid-flow-dense'}`}>
+        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 mb-24 ${isEven ? '' : 'lg:grid-flow-dense'}`}>
           {/* Highlights */}
           <motion.div
             initial={{ opacity: 0, x: isEven ? -50 : 50 }}
@@ -236,7 +238,7 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7 }}
-          className="mb-20"
+          className="mb-24"
         >
           <h3 className="text-3xl lg:text-4xl font-bold text-sand-900 mb-12 text-center">
             What's Included
@@ -249,14 +251,14 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300"
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center h-full"
               >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 mt-1">
-                    {getIconForIncludedItem(item)}
-                  </div>
-                  <span className="text-sand-800 leading-relaxed">{item}</span>
+                {/* Icon centered at top */}
+                <div className="flex-shrink-0 mb-4">
+                  {getIconForIncludedItem(item)}
                 </div>
+                {/* Text centered below icon */}
+                <span className="text-sand-800 leading-relaxed">{item}</span>
               </motion.div>
             ))}
           </div>
@@ -269,7 +271,7 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.7 }}
-            className="mb-20"
+            className="mb-24"
           >
             <h3 className="text-3xl lg:text-4xl font-bold text-sand-900 mb-4 text-center">
               Add-On Experiences
@@ -277,7 +279,7 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
             <p className="text-center text-sand-700 text-lg mb-12 max-w-3xl mx-auto">
               Enhance your retreat with authentic Moroccan adventures
             </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {pkg.experiences.map((exp, idx) => (
                 <motion.div
                   key={idx}
@@ -285,15 +287,18 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="bg-gradient-to-br from-ocean-50 to-cream-100 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300"
+                  className="bg-gradient-to-br from-ocean-50 to-cream-100 rounded-xl p-8 text-center hover:shadow-lg transition-shadow duration-300 flex flex-col items-center h-full"
                 >
-                  <div className="w-12 h-12 bg-ocean-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  {/* Icon - consistent size and centered */}
+                  <div className="w-16 h-16 bg-ocean-500 rounded-full flex items-center justify-center mb-4 flex-shrink-0">
                     {getIconForExperience(exp.title)}
                   </div>
-                  <h4 className="text-lg font-bold text-sand-900 mb-2">
+                  {/* Title */}
+                  <h4 className="text-xl font-bold text-sand-900 mb-3">
                     {exp.title}
                   </h4>
-                  <p className="text-sand-700 text-sm">
+                  {/* Description */}
+                  <p className="text-sand-700 text-base leading-relaxed">
                     {exp.description}
                   </p>
                 </motion.div>
@@ -309,7 +314,7 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.7 }}
-            className="mb-20 bg-gradient-to-br from-ocean-50 via-cream-100 to-sand-100 rounded-3xl p-8 lg:p-16"
+            className="mb-24 bg-gradient-to-br from-ocean-50 via-cream-100 to-sand-100 rounded-3xl p-8 lg:p-16"
           >
             <div className="max-w-4xl mx-auto">
               <h3 className="text-3xl lg:text-4xl font-bold text-sand-900 mb-6 text-center">
