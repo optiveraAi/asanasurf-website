@@ -13,6 +13,7 @@ export const NAV_LINKS = [
   { id: 'packages', label: 'Packages', href: '/packages' },
   { id: 'gallery', label: 'Gallery', href: '/gallery' },
   { id: 'book', label: 'Book Now', href: '/book' },
+  { id: 'faq', label: 'FAQ', href: '/faq' },
 ];
 
 // Hero Section
@@ -79,11 +80,11 @@ export const PACKAGES = {
   packages: [
     {
       id: 'surf-yoga-experience',
-      name: 'Surf & Yoga Experience',
+      name: 'Surf Adventure & Yoga',
       headline: 'Master the Waves',
       tagline: 'All-Inclusive Surf Adventure with Yoga',
       duration: '7 Days / 7 Nights',
-      price: '€999',
+      price: '€1,050',
       priceNote: 'per person',
       featured: false,
       badge: undefined,
@@ -145,15 +146,15 @@ export const PACKAGES = {
       ],
 
       transformation: undefined,
-      cta: 'Book Surf & Yoga Experience',
+      cta: 'Book Surf Adventure & Yoga',
     },
     {
       id: 'yoga-surf-retreat',
-      name: 'Yoga & Surf Retreat',
+      name: 'Yoga Retreat Experience',
       headline: 'Find Your Balance',
       tagline: 'Comprehensive Yoga Retreat by the Ocean',
       duration: '7 Days / 7 Nights',
-      price: '€800',
+      price: '€850',
       priceNote: 'per person',
       featured: false,
       badge: undefined,
@@ -228,7 +229,7 @@ export const PACKAGES = {
         ],
       },
 
-      cta: 'Book Yoga & Surf Retreat',
+      cta: 'Book Yoga Retreat Experience',
     },
   ],
 
@@ -431,8 +432,8 @@ export const BOOKING = {
         placeholder: 'Choose your retreat package',
         required: true,
         options: [
-          'Surf & Yoga Experience - €999 (7 Days / 7 Nights)',
-          'Yoga & Surf Retreat - €800 (7 Days / 7 Nights)',
+          'Surf Adventure & Yoga - €1,050 (7 Days / 7 Nights)',
+          'Yoga Retreat Experience - €850 (7 Days / 7 Nights)',
         ],
       },
       dates: {
@@ -597,4 +598,114 @@ export const SEO = {
   description: 'Find your perfect balance between wave and om. Join us for transformative yoga and surf retreats in Taghazout, Morocco. All levels welcome.',
   keywords: 'yoga retreat, surf camp, Morocco, Taghazout, yoga and surf, wellness retreat, surf vacation, yoga vacation',
   ogImage: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=1200&q=80',
+} as const;
+
+// Day Timelines - What to Expect Section
+export const DAY_TIMELINES = {
+  surfYogaExperience: {
+    title: 'A Day in Your Surf Adventure & Yoga Retreat',
+    packageName: 'Surf Adventure & Yoga',
+    backgroundImage: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=1920&q=80',
+    activities: [
+      {
+        time: '7:00 AM',
+        title: 'Sunrise Yoga',
+        description: 'Gentle yoga session to prepare your body for surfing',
+        iconType: 'sun' as const,
+        iconColor: 'lavender' as const,
+      },
+      {
+        time: '9:00 AM',
+        title: 'Breakfast',
+        description: 'Healthy Moroccan & continental breakfast',
+        iconType: 'coffee' as const,
+        iconColor: 'jungle' as const,
+      },
+      {
+        time: '10:30 AM',
+        title: 'Surf Session',
+        description: "Professional coaching at Morocco's best surf spots with your guide",
+        iconType: 'waves' as const,
+        iconColor: 'ocean' as const,
+      },
+      {
+        time: '1:00 PM',
+        title: 'Lunch & Free Time',
+        description: 'Packed lunch and time to relax, explore Taghazout, or enjoy the beach',
+        iconType: 'apple' as const,
+        iconColor: 'jungle' as const,
+      },
+      {
+        time: '4:00 PM',
+        title: 'Recovery Yoga',
+        description: 'Restorative yoga (Vinyasa, Hatha, or Yin) for muscle recovery',
+        iconType: 'flower' as const,
+        iconColor: 'lavender' as const,
+      },
+      {
+        time: '7:00 PM',
+        title: 'Dinner & Community',
+        description: 'Evening meal with fellow surfers and retreat guests',
+        iconType: 'utensils' as const,
+        iconColor: 'jungle' as const,
+      },
+    ],
+  },
+
+  yogaRetreat: {
+    title: 'A Day in Your Yoga Retreat Experience',
+    packageName: 'Yoga Retreat Experience',
+    backgroundImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1920&q=80',
+    activities: [
+      {
+        time: '6:30 AM',
+        title: 'Sunrise Yoga with Linnea',
+        description: '1.5 hour comprehensive morning practice to start your day',
+        iconType: 'sunrise' as const,
+        iconColor: 'lavender' as const,
+      },
+      {
+        time: '9:00 AM',
+        title: 'Breakfast',
+        description: 'Healthy nourishing breakfast',
+        iconType: 'coffee' as const,
+        iconColor: 'jungle' as const,
+      },
+      {
+        time: '10:30 AM',
+        title: 'Free Time or Beach',
+        description: 'Relax, explore, optional surf sessions, or personal practice',
+        iconType: 'palmtree' as const,
+        iconColor: 'sand' as const,
+      },
+      {
+        time: '1:00 PM',
+        title: 'Lunch',
+        description: 'Packed lunch with fresh local ingredients',
+        iconType: 'apple' as const,
+        iconColor: 'jungle' as const,
+      },
+      {
+        time: '3:00 PM',
+        title: 'Afternoon Yoga',
+        description: '1.5 hour session: Hatha, Vinyasa, or Yin yoga with local teacher',
+        iconType: 'flower' as const,
+        iconColor: 'lavender' as const,
+      },
+      {
+        time: '6:00 PM',
+        title: 'Sunset & Meditation',
+        description: 'Evening wind-down practice',
+        iconType: 'sunset' as const,
+        iconColor: 'lavender' as const,
+      },
+      {
+        time: '7:30 PM',
+        title: 'Dinner & Reflection',
+        description: 'Community meal and sharing circle',
+        iconType: 'utensils' as const,
+        iconColor: 'jungle' as const,
+      },
+    ],
+  },
 } as const;

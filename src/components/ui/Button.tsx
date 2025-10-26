@@ -39,13 +39,13 @@ const Button: React.FC<ButtonProps> = ({
 
   // Variant variations with custom colors from tailwind.config.js
   const variantClasses = {
-    primary: `bg-ocean-600 text-white hover:bg-ocean-700 hover:shadow-lg
+    primary: `bg-ocean-600 text-white hover:bg-ocean-700 hover:shadow-lg shadow-md
               active:scale-95 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:hover:scale-100`,
-    secondary: `bg-sand-500 text-white hover:bg-sand-600 hover:shadow-lg
+    secondary: `bg-sand-700 text-white hover:bg-sand-800 hover:shadow-lg shadow-md
                 active:scale-95 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:hover:scale-100`,
-    outline: `border-2 border-ocean-600 text-ocean-600 bg-transparent hover:bg-ocean-50 hover:shadow-md
+    outline: `border-2 border-ocean-600 text-ocean-600 bg-white hover:bg-ocean-50 hover:shadow-md shadow-sm
               active:scale-95 disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed
-              disabled:hover:scale-100 disabled:hover:bg-transparent`,
+              disabled:hover:scale-100 disabled:hover:bg-white`,
   };
 
   return (

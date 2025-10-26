@@ -5,8 +5,8 @@ import Packages from '../components/sections/Packages';
  * PACKAGES PAGE
  *
  * Dedicated page for showcasing retreat experiences:
- * - Surf Focused Experience (immersive section)
- * - Yoga & Surf Retreat (immersive section)
+ * - Surf Adventure & Yoga (immersive section)
+ * - Yoga Retreat Experience (immersive section)
  * - Book Your Retreat CTA
  */
 const PackagesPage: React.FC = () => {

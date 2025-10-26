@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '../components/sections/Hero';
 import Introduction from '../components/sections/Introduction';
+import LogoLoop from '../components/sections/LogoLoop';
 import PackagePreview from '../components/sections/PackagePreview';
 
 /**
@@ -11,6 +12,7 @@ import PackagePreview from '../components/sections/PackagePreview';
  * - Introduction about Asana n Surf
  * - Why Yoga + Surf works
  * - Discover Taghazout
+ * - Surf brand partner logos carousel
  * - Interactive package preview cards
  */
 const HomePage: React.FC = () => {
@@ -21,6 +23,9 @@ const HomePage: React.FC = () => {
 
       {/* Introduction Section */}
       <Introduction />
+
+      {/* Logo Carousel - Surf Brand Partners */}
+      <LogoLoop />
 
       {/* Package Preview Cards */}
       <PackagePreview />

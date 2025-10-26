@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Check, Star, Sparkles, Coffee, Waves, Flower2, Users, Utensils, Bed, MapPin, ShoppingBag, Mountain, Droplets } from 'lucide-react';
-import { PACKAGES } from '../../constants/content';
+import { PACKAGES, DAY_TIMELINES } from '../../constants/content';
 import Button from '../ui/Button';
+import DayTimeline from './DayTimeline';
 
 /**
  * IMMERSIVE PACKAGES REDESIGN
@@ -137,16 +138,6 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
               <p className="text-2xl lg:text-3xl text-white/95 mb-6 drop-shadow">
                 {pkg.tagline}
               </p>
-
-              {/* Price */}
-              <div className="flex items-baseline gap-3">
-                <span className="text-4xl lg:text-5xl font-bold text-white drop-shadow-lg">
-                  {pkg.price}
-                </span>
-                <span className="text-lg text-white/90 drop-shadow">
-                  {pkg.priceNote} · {pkg.duration}
-                </span>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -261,6 +252,59 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
                 <span className="text-sand-800 leading-relaxed">{item}</span>
               </motion.div>
             ))}
+          </div>
+        </motion.div>
+
+        {/* Investment Pricing Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.7 }}
+          className="mb-24"
+        >
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-gradient-to-br from-cream-50 via-sand-50 to-cream-100 rounded-3xl p-10 lg:p-16 shadow-xl border border-sand-200/50">
+              <div className="text-center">
+                {/* "Most Popular" badge for Yoga Retreat */}
+                {pkg.id === 'yoga-surf-retreat' && (
+                  <div className="inline-flex items-center gap-2 bg-ocean-500 text-white px-4 py-2 rounded-full mb-6 shadow-md">
+                    <Star className="w-4 h-4 fill-current" />
+                    <span className="text-sm font-semibold">Most Popular</span>
+                  </div>
+                )}
+
+                {/* Investment Heading */}
+                <h3 className="text-2xl lg:text-3xl font-serif text-sand-800 mb-2">
+                  Investment
+                </h3>
+
+                {/* Price Display */}
+                <div className="mb-6">
+                  <div className="flex items-baseline justify-center gap-2 mb-2">
+                    <span className="text-5xl lg:text-6xl font-bold text-ocean-600">
+                      {pkg.price}
+                    </span>
+                    <span className="text-xl text-sand-700">{pkg.priceNote}</span>
+                  </div>
+                  <p className="text-lg text-sand-600">{pkg.duration}</p>
+                </div>
+
+                {/* Subtext */}
+                <p className="text-sand-700 text-lg italic mb-6">
+                  {pkg.id === 'surf-yoga-experience'
+                    ? 'All-inclusive surf adventure with complimentary yoga sessions'
+                    : 'Comprehensive yoga retreat with optional surf sessions'}
+                </p>
+
+                {/* Optional: Payment Info */}
+                <div className="pt-6 border-t border-sand-200">
+                  <p className="text-sm text-sand-600">
+                    Early bird discount available for bookings 3+ months in advance
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
 
@@ -391,6 +435,30 @@ const Packages: React.FC = () => {
         <PackageSection key={pkg.id} pkg={pkg} index={index} />
       ))}
 
+      {/* What to Expect - Day-by-Day Timelines */}
+      <div className="bg-cream-50">
+        {/* Surf Adventure & Yoga Timeline */}
+        <DayTimeline
+          packageName={DAY_TIMELINES.surfYogaExperience.packageName}
+          title={DAY_TIMELINES.surfYogaExperience.title}
+          activities={DAY_TIMELINES.surfYogaExperience.activities}
+          backgroundImage={DAY_TIMELINES.surfYogaExperience.backgroundImage}
+        />
+
+        {/* Divider */}
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="h-px bg-gradient-to-r from-transparent via-sand-300 to-transparent"></div>
+        </div>
+
+        {/* Yoga Retreat Experience Timeline */}
+        <DayTimeline
+          packageName={DAY_TIMELINES.yogaRetreat.packageName}
+          title={DAY_TIMELINES.yogaRetreat.title}
+          activities={DAY_TIMELINES.yogaRetreat.activities}
+          backgroundImage={DAY_TIMELINES.yogaRetreat.backgroundImage}
+        />
+      </div>
+
       {/* Final CTA - Single "Book Your Retreat" Button */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24">
         <motion.div
@@ -408,8 +476,8 @@ const Packages: React.FC = () => {
           </p>
           <Link to={PACKAGES.finalCta.linkTo}>
             <Button
-              variant="secondary"
-              className="text-lg px-12 py-4 bg-white text-ocean-600 hover:bg-cream-50"
+              variant="outline"
+              className="text-lg px-12 py-4 bg-white text-ocean-600 hover:bg-ocean-50 border-white hover:border-ocean-100"
             >
               {PACKAGES.finalCta.buttonText}
             </Button>

@@ -8,7 +8,6 @@ import Contact from '../components/sections/Contact';
  * Booking and contact information:
  * - Booking form with package selection
  * - Contact details
- * - FAQ section
  */
 const BookPage: React.FC = () => {
   return (
