@@ -209,6 +209,27 @@ If you want to keep EmailJS credentials private, add them as environment variabl
 - EmailJS forms will show errors until credentials are configured
 - Some deprecation warnings from webpack (doesn't affect functionality)
 
+### Development Dependency Vulnerabilities
+
+**Status**: 9 npm audit vulnerabilities (3 moderate, 6 high) - Last checked: Nov 2, 2025
+
+**Details**:
+- All vulnerabilities are in `react-scripts` v5.0.1 dependencies (webpack-dev-server, nth-check, postcss)
+- These are **development-only** dependencies - not included in production build
+- Running `npm audit fix --force` would break the application (tries to install react-scripts@0.0.0)
+- Production build is unaffected and secure
+
+**Risk Assessment**:
+- Production: ✅ VERY LOW (vulnerabilities not present in deployed bundle)
+- Development: ⚠️ LOW-MEDIUM (only exploitable if visiting malicious sites during `npm start`)
+
+**Resolution Plan**:
+- Option 1: Accept risk for MVP (recommended for now)
+- Option 2: Add npm overrides for partial fix
+- Option 3: Migrate from Create React App to Vite (long-term solution)
+
+**Note**: Create React App is in maintenance mode. Future projects should consider using Vite.
+
 ## 📝 License
 
 This project is for educational and portfolio purposes.

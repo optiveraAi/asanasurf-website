@@ -81,10 +81,10 @@ export const PACKAGES = {
     {
       id: 'surf-yoga-experience',
       name: 'Surf Adventure & Yoga',
-      headline: 'Master the Waves',
+      headline: 'Find Your Flow',
       tagline: 'All-Inclusive Surf Adventure with Yoga',
       duration: '7 Days / 7 Nights',
-      price: '€1,050',
+      price: '€950',
       priceNote: 'per person',
       featured: false,
       badge: undefined,
@@ -105,7 +105,7 @@ export const PACKAGES = {
           description: 'Expert instruction from qualified surf coaches who know Taghazout\'s breaks intimately and will get you riding the best waves for your ability',
         },
         {
-          title: 'Professional Guidance',
+          title: 'Professional Guiding',
           description: 'Knowledgeable guides taking you to the best beaches and surf spots with daily transport included',
         },
         {
@@ -172,11 +172,7 @@ export const PACKAGES = {
       highlights: [
         {
           title: 'Twice-Daily Yoga with Linnea',
-          description: '5 x 1.5-hour sunrise yoga sessions every morning, plus 5 x 1.5-hour PM yoga classes in various styles including Hatha, Vinyasa, and Yin yoga',
-        },
-        {
-          title: 'Therapeutic Massage Included',
-          description: 'One treatment/massage session with Linnea included in your retreat to deepen relaxation and recovery',
+          description: '5 x 1-hour sunrise yoga sessions every morning, plus 5 x 1-hour PM yoga classes in various styles including Hatha, Vinyasa, and Yin yoga',
         },
         {
           title: 'Surf Sessions Available',
@@ -186,17 +182,21 @@ export const PACKAGES = {
           title: 'Full Support & Care',
           description: 'Team available 24/7 with all meals, accommodation, and daily transport to the beaches completely taken care of',
         },
+        {
+          title: 'Optional Add-Ons',
+          description: 'Enhance your retreat with therapeutic massage sessions and other wellness experiences',
+        },
       ],
 
       included: [
         'Team on hand 24/7 taking care of your every need',
         '7 nights accommodation at our Taghazout retreat',
         'Healthy breakfast, packed lunch, and evening meals daily',
-        '5 x 1.5 hours sunrise yoga every day with Linnea',
-        '5 x 1.5 hours PM yoga class (Hatha, Vinyasa, Yin) with local yoga teacher',
-        '1 treatment/massage session with Linnea',
+        '5 x 1 hour sunrise yoga every day with Linnea',
+        '5 x 1 hour PM yoga class (Hatha, Vinyasa, Yin) with local yoga teacher',
         'Daily transport to the beaches',
         'Surf coaching sessions available (can be added)',
+        'Therapeutic massage sessions available (can be added)',
         'Agadir Airport transfers',
       ],
 
@@ -243,14 +243,14 @@ export const PACKAGES = {
 
 // Experiences/What's Included Section
 export const EXPERIENCES = {
-  sectionTitle: 'Beyond Yoga and Surf',
-  sectionSubtitle: 'Immerse yourself in authentic Moroccan culture and unforgettable experiences',
+  sectionTitle: 'Optional Add-Ons & Experiences',
+  sectionSubtitle: 'Enhance your retreat with authentic Moroccan culture and wellness experiences',
 
   experiences: [
     {
       id: 'massage',
-      title: 'Therapeutic Massage',
-      description: 'Professional massage sessions designed specifically for surfers and yogis. Perfect for sore muscles, deep relaxation, and recovery after your active days on the waves.',
+      title: 'Therapeutic Massage (Add-On)',
+      description: 'Professional massage sessions designed specifically for surfers and yogis. Perfect for sore muscles, deep relaxation, and recovery after your active days on the waves. Book additional sessions with Linnea to enhance your retreat experience.',
       benefits: ['Deep muscle recovery', 'Improved flexibility', 'Stress relief', 'Enhanced circulation'],
     },
     {
@@ -281,7 +281,7 @@ export const EXPERIENCES = {
       'Airport transfers (Agadir Al Massira Airport)',
       'Surfboards and wetsuits for all surf sessions',
       'Yoga mats and props',
-      'Qualified surf and yoga instructors',
+      'Qualified surf instructors and yoga teachers',
       'Travel insurance assistance',
     ],
   },
@@ -320,7 +320,7 @@ export const YOGA_FOR_SURFERS = {
     },
     {
       title: 'Works for All Levels',
-      description: 'Whether you\'ve never stood on a surfboard or you\'re chasing barrels, yoga meets you where you are. Our experienced instructors adapt every practice to support beginners and challenge advanced practitioners.',
+      description: 'Whether you\'ve never stood on a surfboard or you\'re chasing barrels, yoga meets you where you are. Our experienced teachers adapt every practice to support beginners and challenge advanced practitioners.',
       icon: 'Users',
     },
   ],
@@ -432,7 +432,7 @@ export const BOOKING = {
         placeholder: 'Choose your retreat package',
         required: true,
         options: [
-          'Surf Adventure & Yoga - €1,050 (7 Days / 7 Nights)',
+          'Surf Adventure & Yoga - €950 (7 Days / 7 Nights)',
           'Yoga Retreat Experience - €850 (7 Days / 7 Nights)',
         ],
       },
@@ -472,7 +472,7 @@ export const BOOKING = {
     questions: [
       {
         question: 'Do I need surf or yoga experience?',
-        answer: 'Not at all! Our programs are designed for all levels, from complete beginners to experienced practitioners. Our instructors will meet you where you are and help you progress.',
+        answer: 'Not at all! Our programs are designed for all levels, from complete beginners to experienced practitioners. Our surf instructors and yoga teachers will meet you where you are and help you progress.',
       },
       {
         question: 'What\'s included in the price?',
@@ -660,7 +660,7 @@ export const DAY_TIMELINES = {
       {
         time: '6:30 AM',
         title: 'Sunrise Yoga with Linnea',
-        description: '1.5 hour comprehensive morning practice to start your day',
+        description: '1 hour comprehensive morning practice to start your day',
         iconType: 'sunrise' as const,
         iconColor: 'lavender' as const,
       },
@@ -688,7 +688,7 @@ export const DAY_TIMELINES = {
       {
         time: '3:00 PM',
         title: 'Afternoon Yoga',
-        description: '1.5 hour session: Hatha, Vinyasa, or Yin yoga with local teacher',
+        description: '1 hour session: Hatha, Vinyasa, or Yin yoga with local teacher',
         iconType: 'flower' as const,
         iconColor: 'lavender' as const,
       },

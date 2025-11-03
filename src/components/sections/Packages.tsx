@@ -22,6 +22,7 @@ import DayTimeline from './DayTimeline';
 interface PackageSectionProps {
   pkg: typeof PACKAGES.packages[0];
   index: number;
+  isTarget?: boolean;
 }
 
 /**
@@ -69,25 +70,43 @@ const getIconForExperience = (title: string) => {
 /**
  * Individual Package Section - Full-Width Immersive Experience
  */
-const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
+const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index, isTarget = false }) => {
   const isEven = index % 2 === 0;
 
+  // Animation configuration: immediate animation if this is the target section
+  const getAnimationProps = (defaultProps: any) => {
+    if (isTarget) {
+      // Skip initial state and animate immediately
+      return {
+        ...defaultProps,
+        initial: false,
+        animate: defaultProps.whileInView || { opacity: 1, y: 0 },
+        viewport: undefined,
+      };
+    }
+    return defaultProps;
+  };
+
   return (
-    <section className="relative min-h-screen overflow-hidden bg-cream-50">
+    <section id={pkg.id} className="relative min-h-screen overflow-hidden bg-cream-50">
       {/* Hero Image with Parallax */}
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 1 }}
+        {...getAnimationProps({
+          initial: { opacity: 0 },
+          whileInView: { opacity: 1 },
+          viewport: { once: true, margin: '-100px' },
+          transition: { duration: 1 },
+        })}
         className="relative h-[60vh] lg:h-[70vh] w-full overflow-hidden"
       >
         {/* Parallax Background */}
         <motion.div
-          initial={{ scale: 1.2 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.5, ease: 'easeOut' }}
+          {...getAnimationProps({
+            initial: { scale: 1.2 },
+            whileInView: { scale: 1 },
+            viewport: { once: true },
+            transition: { duration: 1.5, ease: 'easeOut' },
+          })}
           className="absolute inset-0"
         >
           <div
@@ -102,10 +121,12 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
         <div className="relative h-full flex items-end">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-16 lg:pb-24 w-full">
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              {...getAnimationProps({
+                initial: { opacity: 0, y: 50 },
+                whileInView: { opacity: 1, y: 0 },
+                viewport: { once: true },
+                transition: { duration: 0.8, delay: 0.3 },
+              })}
               className="max-w-3xl"
             >
               {/* Badge */}
@@ -146,10 +167,12 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
       {/* Story Section */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.7 }}
+          {...getAnimationProps({
+            initial: { opacity: 0, y: 30 },
+            whileInView: { opacity: 1, y: 0 },
+            viewport: { once: true, margin: '-100px' },
+            transition: { duration: 0.7 },
+          })}
           className="max-w-4xl mx-auto text-center mb-24"
         >
           <p className="text-xl lg:text-2xl text-sand-800 leading-relaxed">
@@ -161,10 +184,12 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
         <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 mb-24 ${isEven ? '' : 'lg:grid-flow-dense'}`}>
           {/* Highlights */}
           <motion.div
-            initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.7 }}
+            {...getAnimationProps({
+              initial: { opacity: 0, x: isEven ? -50 : 50 },
+              whileInView: { opacity: 1, x: 0 },
+              viewport: { once: true, margin: '-100px' },
+              transition: { duration: 0.7 },
+            })}
             className={isEven ? 'lg:col-start-1' : 'lg:col-start-2'}
           >
             <h3 className="text-3xl lg:text-4xl font-bold text-sand-900 mb-8">
@@ -174,10 +199,12 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
               {pkg.highlights.map((highlight, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  {...getAnimationProps({
+                    initial: { opacity: 0, y: 20 },
+                    whileInView: { opacity: 1, y: 0 },
+                    viewport: { once: true },
+                    transition: { duration: 0.5, delay: idx * 0.1 },
+                  })}
                   className="border-l-4 border-ocean-500 pl-6"
                 >
                   <h4 className="text-xl font-bold text-sand-900 mb-2">
@@ -193,20 +220,24 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
 
           {/* Lifestyle Images Grid */}
           <motion.div
-            initial={{ opacity: 0, x: isEven ? 50 : -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.7 }}
+            {...getAnimationProps({
+              initial: { opacity: 0, x: isEven ? 50 : -50 },
+              whileInView: { opacity: 1, x: 0 },
+              viewport: { once: true, margin: '-100px' },
+              transition: { duration: 0.7 },
+            })}
             className={isEven ? 'lg:col-start-2' : 'lg:col-start-1'}
           >
             <div className="grid grid-cols-2 gap-4">
               {pkg.lifestyleImages.map((image, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.15 }}
+                  {...getAnimationProps({
+                    initial: { opacity: 0, scale: 0.9 },
+                    whileInView: { opacity: 1, scale: 1 },
+                    viewport: { once: true },
+                    transition: { duration: 0.5, delay: idx * 0.15 },
+                  })}
                   className={idx === 0 ? 'col-span-2' : ''}
                 >
                   <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3]">
@@ -225,10 +256,12 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
 
         {/* What's Included - Visual Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.7 }}
+          {...getAnimationProps({
+            initial: { opacity: 0, y: 30 },
+            whileInView: { opacity: 1, y: 0 },
+            viewport: { once: true, margin: '-100px' },
+            transition: { duration: 0.7 },
+          })}
           className="mb-24"
         >
           <h3 className="text-3xl lg:text-4xl font-bold text-sand-900 mb-12 text-center">
@@ -238,10 +271,12 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
             {pkg.included.map((item, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                {...getAnimationProps({
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  viewport: { once: true },
+                  transition: { duration: 0.5, delay: idx * 0.08 },
+                })}
                 className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center h-full"
               >
                 {/* Icon centered at top */}
@@ -257,10 +292,12 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
 
         {/* Investment Pricing Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.7 }}
+          {...getAnimationProps({
+            initial: { opacity: 0, y: 30 },
+            whileInView: { opacity: 1, y: 0 },
+            viewport: { once: true, margin: '-100px' },
+            transition: { duration: 0.7 },
+          })}
           className="mb-24"
         >
           <div className="max-w-3xl mx-auto">
@@ -311,10 +348,12 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
         {/* Additional Experiences (if available) */}
         {'experiences' in pkg && pkg.experiences && (
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.7 }}
+            {...getAnimationProps({
+              initial: { opacity: 0, y: 30 },
+              whileInView: { opacity: 1, y: 0 },
+              viewport: { once: true, margin: '-100px' },
+              transition: { duration: 0.7 },
+            })}
             className="mb-24"
           >
             <h3 className="text-3xl lg:text-4xl font-bold text-sand-900 mb-4 text-center">
@@ -327,10 +366,12 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
               {pkg.experiences.map((exp, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  {...getAnimationProps({
+                    initial: { opacity: 0, scale: 0.95 },
+                    whileInView: { opacity: 1, scale: 1 },
+                    viewport: { once: true },
+                    transition: { duration: 0.5, delay: idx * 0.1 },
+                  })}
                   className="bg-gradient-to-br from-ocean-50 to-cream-100 rounded-xl p-8 text-center hover:shadow-lg transition-shadow duration-300 flex flex-col items-center h-full"
                 >
                   {/* Icon - consistent size and centered */}
@@ -354,10 +395,12 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
         {/* Transformation Journey (for Yoga & Surf package) */}
         {'transformation' in pkg && pkg.transformation && (
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.7 }}
+            {...getAnimationProps({
+              initial: { opacity: 0, y: 30 },
+              whileInView: { opacity: 1, y: 0 },
+              viewport: { once: true, margin: '-100px' },
+              transition: { duration: 0.7 },
+            })}
             className="mb-24 bg-gradient-to-br from-ocean-50 via-cream-100 to-sand-100 rounded-3xl p-8 lg:p-16"
           >
             <div className="max-w-4xl mx-auto">
@@ -372,10 +415,12 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
                 {pkg.transformation.dayInLife.map((moment, idx) => (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    {...getAnimationProps({
+                      initial: { opacity: 0, x: idx % 2 === 0 ? -20 : 20 },
+                      whileInView: { opacity: 1, x: 0 },
+                      viewport: { once: true },
+                      transition: { duration: 0.5, delay: idx * 0.1 },
+                    })}
                     className="flex items-start gap-3 bg-white/60 rounded-lg p-4"
                   >
                     <Coffee className="w-5 h-5 text-ocean-500 flex-shrink-0 mt-1" />
@@ -389,10 +434,12 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
 
         {/* Package CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          {...getAnimationProps({
+            initial: { opacity: 0, y: 30 },
+            whileInView: { opacity: 1, y: 0 },
+            viewport: { once: true },
+            transition: { duration: 0.7 },
+          })}
           className="text-center"
         >
           <Link to="/book">
@@ -409,7 +456,11 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index }) => {
 /**
  * Main Packages Component
  */
-const Packages: React.FC = () => {
+interface PackagesProps {
+  targetPackageId?: string | null;
+}
+
+const Packages: React.FC<PackagesProps> = ({ targetPackageId }) => {
   return (
     <section id="packages" className="bg-cream-50">
       {/* Section Header */}
@@ -432,7 +483,12 @@ const Packages: React.FC = () => {
 
       {/* Package Sections */}
       {PACKAGES.packages.map((pkg, index) => (
-        <PackageSection key={pkg.id} pkg={pkg} index={index} />
+        <PackageSection
+          key={pkg.id}
+          pkg={pkg}
+          index={index}
+          isTarget={targetPackageId === pkg.id}
+        />
       ))}
 
       {/* What to Expect - Day-by-Day Timelines */}

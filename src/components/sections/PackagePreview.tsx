@@ -26,7 +26,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFirst }) => {
   // Short description for each package
   const shortDescription = isFirst
     ? "Dive into an all-inclusive surf adventure with complimentary yoga sessions. Perfect for aspiring surfers who want to ride Morocco's best waves while staying balanced and energized."
-    : "Immerse yourself in twice-daily yoga practice by the ocean. Deepen your practice with experienced instructors, optional surf sessions, and transformative wellness experiences.";
+    : "Immerse yourself in twice-daily yoga practice by the ocean. Deepen your practice with experienced teachers, optional surf sessions, and transformative wellness experiences.";
 
   return (
     <motion.div
@@ -114,7 +114,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFirst }) => {
             </div>
 
             {/* View More Button */}
-            <Link to="/packages">
+            <Link to={`/packages#${pkg.id}`}>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -133,7 +133,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFirst }) => {
               animate={{ opacity: isHovered ? 0 : 1 }}
               transition={{ duration: 0.3 }}
             >
-              <Link to="/packages">
+              <Link to={`/packages#${pkg.id}`}>
                 <button className="w-full bg-white/90 text-ocean-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:bg-white transition-colors duration-300 flex items-center justify-center gap-2 mt-4">
                   View More
                   <ArrowRight className="w-5 h-5" />
