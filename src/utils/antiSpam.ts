@@ -140,7 +140,7 @@ export const getHoneypotFieldProps = () => ({
   name: 'website', // Bots often fill this
   autoComplete: 'off',
   tabIndex: -1,
-  'aria-hidden': 'true',
+  'aria-hidden': true,
   style: {
     position: 'absolute' as const,
     left: '-9999px',
