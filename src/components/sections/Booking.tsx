@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { BOOKING } from '../../constants/content';
 import { sendBookingEmail } from '../../utils/emailService';
+import { sanitizeInput, validateForm, sanitizeFormData, MAX_LENGTHS } from '../../utils/validation';
+import { recordFormStart, performSpamCheck, onFormSubmitSuccess, getHoneypotFieldProps } from '../../utils/antiSpam';
 import Button from '../ui/Button';
 import Input from '../ui/Input';
 import Textarea from '../ui/Textarea';
@@ -26,23 +28,62 @@ const Booking: React.FC = () => {
     requests: '',
   });
 
+  const [honeypot, setHoneypot] = useState('');
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  // SECURITY: Record when user starts filling the form (anti-bot measure)
+  useEffect(() => {
+    recordFormStart();
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+
+    // SECURITY: Sanitize input as user types
+    const sanitizedValue = sanitizeInput(value);
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: sanitizedValue,
     });
+
+    // Clear validation error for this field
+    if (validationErrors[name]) {
+      setValidationErrors({
+        ...validationErrors,
+        [name]: '',
+      });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // SECURITY: Perform spam checks (honeypot, rate limiting, fill time)
+    const spamCheck = performSpamCheck(honeypot);
+    if (!spamCheck.isValid) {
+      setValidationErrors({ form: spamCheck.message || 'Submission blocked' });
+      return;
+    }
+
+    // SECURITY: Validate form before submission
+    const validation = validateForm(formData, ['name', 'email', 'package', 'dates', 'guests']);
+
+    if (!validation.isValid) {
+      setValidationErrors(validation.errors);
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setValidationErrors({});
 
     try {
-      const result = await sendBookingEmail(formData);
+      // SECURITY: Sanitize all form data before sending
+      const sanitizedData = sanitizeFormData(formData);
+      const result = await sendBookingEmail(sanitizedData);
 
       if (result.success) {
         setSubmitStatus('success');
@@ -56,6 +97,8 @@ const Booking: React.FC = () => {
           guests: '',
           requests: '',
         });
+        // SECURITY: Record successful submission for rate limiting
+        onFormSubmitSuccess();
       } else {
         setSubmitStatus('error');
       }
@@ -134,6 +177,21 @@ const Booking: React.FC = () => {
           {/* Booking Form */}
           <div className="bg-cream-50 rounded-2xl shadow-xl p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Form-level validation errors */}
+              {validationErrors.form && (
+                <div className="bg-red-50 border border-red-300 rounded-lg p-4 flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                  <p className="text-red-700">{validationErrors.form}</p>
+                </div>
+              )}
+
+              {/* SECURITY: Honeypot field (hidden from users, catches bots) */}
+              <input
+                {...getHoneypotFieldProps()}
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+
               {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -145,8 +203,12 @@ const Booking: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder={BOOKING.form.fields.name.placeholder}
+                  maxLength={MAX_LENGTHS.name}
                   required
                 />
+                {validationErrors.name && (
+                  <p className="mt-1 text-sm text-red-600">{validationErrors.name}</p>
+                )}
               </div>
 
               {/* Email */}
@@ -160,8 +222,12 @@ const Booking: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder={BOOKING.form.fields.email.placeholder}
+                  maxLength={MAX_LENGTHS.email}
                   required
                 />
+                {validationErrors.email && (
+                  <p className="mt-1 text-sm text-red-600">{validationErrors.email}</p>
+                )}
               </div>
 
               {/* Phone */}
@@ -175,7 +241,11 @@ const Booking: React.FC = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder={BOOKING.form.fields.phone.placeholder}
+                  maxLength={MAX_LENGTHS.phone}
                 />
+                {validationErrors.phone && (
+                  <p className="mt-1 text-sm text-red-600">{validationErrors.phone}</p>
+                )}
               </div>
 
               {/* Package Selection */}
@@ -199,6 +269,9 @@ const Booking: React.FC = () => {
                     </option>
                   ))}
                 </select>
+                {validationErrors.package && (
+                  <p className="mt-1 text-sm text-red-600">{validationErrors.package}</p>
+                )}
               </div>
 
               {/* Dates & Guests Grid */}
@@ -214,8 +287,12 @@ const Booking: React.FC = () => {
                     value={formData.dates}
                     onChange={handleChange}
                     placeholder={BOOKING.form.fields.dates.placeholder}
+                    maxLength={MAX_LENGTHS.dates}
                     required
                   />
+                  {validationErrors.dates && (
+                    <p className="mt-1 text-sm text-red-600">{validationErrors.dates}</p>
+                  )}
                 </div>
 
                 {/* Number of Guests */}
@@ -229,8 +306,12 @@ const Booking: React.FC = () => {
                     value={formData.guests}
                     onChange={handleChange}
                     placeholder={BOOKING.form.fields.guests.placeholder}
+                    maxLength={MAX_LENGTHS.guests}
                     required
                   />
+                  {validationErrors.guests && (
+                    <p className="mt-1 text-sm text-red-600">{validationErrors.guests}</p>
+                  )}
                 </div>
               </div>
 
@@ -245,7 +326,11 @@ const Booking: React.FC = () => {
                   onChange={handleChange}
                   placeholder={BOOKING.form.fields.message.placeholder}
                   rows={5}
+                  maxLength={MAX_LENGTHS.specialRequests}
                 />
+                {validationErrors.requests && (
+                  <p className="mt-1 text-sm text-red-600">{validationErrors.requests}</p>
+                )}
               </div>
 
               {/* Submit Button */}
