@@ -41,12 +41,10 @@ const Booking: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
 
-    // SECURITY: Sanitize input as user types
-    const sanitizedValue = sanitizeInput(value);
-
+    // Allow user to type freely - sanitization happens on submit
     setFormData({
       ...formData,
-      [name]: sanitizedValue,
+      [name]: value,
     });
 
     // Clear validation error for this field
