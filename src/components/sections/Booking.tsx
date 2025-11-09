@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { BOOKING } from '../../constants/content';
 import { sendBookingEmail } from '../../utils/emailService';
-import { sanitizeInput, validateForm, sanitizeFormData, MAX_LENGTHS } from '../../utils/validation';
+import { validateForm, sanitizeFormData, MAX_LENGTHS } from '../../utils/validation';
 import { recordFormStart, performSpamCheck, onFormSubmitSuccess, getHoneypotFieldProps } from '../../utils/antiSpam';
 import Button from '../ui/Button';
 import Input from '../ui/Input';
