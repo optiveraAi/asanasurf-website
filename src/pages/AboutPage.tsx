@@ -296,7 +296,7 @@ const AboutPage: React.FC = () => {
       {/* Wave Divider - Promise to CTA */}
       <WaveDivider
         variant="dramatic"
-        fillColor="#4a8fa3"
+        fillColor="#0ea5e9"
         backgroundColor="transparent"
         flip={true}
       />

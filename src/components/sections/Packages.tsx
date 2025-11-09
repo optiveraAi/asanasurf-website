@@ -29,24 +29,41 @@ interface PackageSectionProps {
 /**
  * Helper function to get the appropriate icon for an included item
  * Standard size: 32px (w-8 h-8)
+ * Each icon gets a distinct, elegant color from the website palette
  */
-const getIconForIncludedItem = (item: string) => {
+const getIconForIncludedItem = (item: string, index: number) => {
   const itemLower = item.toLowerCase();
 
+  // Elegant color palette - toned down, sophisticated colors
+  const colors = [
+    'text-ocean-500',      // Bright ocean blue
+    'text-ocean-600',      // Deeper ocean blue
+    'text-sky-500',        // Lighter sky blue
+    'text-teal-500',       // Teal blue-green
+    'text-lavender-500',   // Soft purple
+    'text-purple-400',     // Light purple
+    'text-sand-600',       // Warm beige
+    'text-amber-600',      // Warm amber
+    'text-cyan-600',       // Cyan blue
+  ];
+
+  // Get unique color based on index
+  const colorClass = colors[index % colors.length];
+
   if (itemLower.includes('surf') || itemLower.includes('board')) {
-    return <Waves className="w-8 h-8 text-ocean-500" strokeWidth={1.5} />;
+    return <Waves className={`w-8 h-8 ${colorClass}`} strokeWidth={1.5} />;
   } else if (itemLower.includes('yoga') || itemLower.includes('massage') || itemLower.includes('treatment')) {
-    return <Flower2 className="w-8 h-8 text-lavender-500" strokeWidth={1.5} />;
+    return <Flower2 className={`w-8 h-8 ${colorClass}`} strokeWidth={1.5} />;
   } else if (itemLower.includes('meal') || itemLower.includes('breakfast') || itemLower.includes('lunch') || itemLower.includes('dinner')) {
-    return <Utensils className="w-8 h-8 text-sand-600" strokeWidth={1.5} />;
+    return <Utensils className={`w-8 h-8 ${colorClass}`} strokeWidth={1.5} />;
   } else if (itemLower.includes('accommodation') || itemLower.includes('night')) {
-    return <Bed className="w-8 h-8 text-sand-600" strokeWidth={1.5} />;
+    return <Bed className={`w-8 h-8 ${colorClass}`} strokeWidth={1.5} />;
   } else if (itemLower.includes('transport') || itemLower.includes('transfer') || itemLower.includes('airport') || itemLower.includes('beach')) {
-    return <MapPin className="w-8 h-8 text-jungle-500" strokeWidth={1.5} />;
+    return <MapPin className={`w-8 h-8 ${colorClass}`} strokeWidth={1.5} />;
   } else if (itemLower.includes('guide') || itemLower.includes('team') || itemLower.includes('24/7')) {
-    return <Users className="w-8 h-8 text-ocean-500" strokeWidth={1.5} />;
+    return <Users className={`w-8 h-8 ${colorClass}`} strokeWidth={1.5} />;
   } else {
-    return <Check className="w-8 h-8 text-ocean-500" strokeWidth={1.5} />;
+    return <Check className={`w-8 h-8 ${colorClass}`} strokeWidth={1.5} />;
   }
 };
 
@@ -111,7 +128,7 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index, isTarget = 
           className="absolute inset-0"
         >
           <div
-            className="absolute inset-0 bg-cover bg-center"
+            className={`absolute inset-0 bg-cover ${pkg.id === 'yoga-surf-retreat' ? 'bg-[center_20%]' : 'bg-center'}`}
             style={{ backgroundImage: `url(${pkg.heroImage})` }}
           />
           {/* Gradient Overlay */}
@@ -282,7 +299,7 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index, isTarget = 
               >
                 {/* Icon centered at top */}
                 <div className="flex-shrink-0 mb-4">
-                  {getIconForIncludedItem(item)}
+                  {getIconForIncludedItem(item, idx)}
                 </div>
                 {/* Text centered below icon */}
                 <span className="text-sand-800 leading-relaxed">{item}</span>

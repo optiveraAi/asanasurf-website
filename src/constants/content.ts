@@ -128,7 +128,7 @@ export const PACKAGES = {
         'Daily transport to the best beaches and surf spots',
         'Professional guide getting you to the best waves for your ability',
         'Complimentary yoga sessions (Vinyasa, Hatha, Yin) for surf prep and recovery',
-        'Agadir Airport transfers',
+        'Airport Transfers Available to Book',
       ],
 
       experiences: [
@@ -168,11 +168,11 @@ export const PACKAGES = {
         'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
       ],
 
-      story: 'A transformative 7-day retreat focusing on comprehensive yoga practice with the option to add surf sessions. Perfect for yogis who want to try surfing or deepen their practice by the ocean. With Linnea as your guide and our team on hand 24/7, you\'ll experience a complete mind-body transformation in Morocco\'s most beautiful setting.',
+      story: 'A transformative 7-day retreat focusing on comprehensive yoga practice with the option to add surf sessions. Perfect for yogis who want to try surfing or deepen their practice by the ocean. With experienced yoga teachers and our team on hand 24/7, you\'ll experience a complete mind-body transformation in Morocco\'s most beautiful setting.',
 
       highlights: [
         {
-          title: 'Twice-Daily Yoga with Linnea',
+          title: 'Twice-Daily Yoga Sessions',
           description: '5 x 1-hour sunrise yoga sessions every morning, plus 5 x 1-hour PM yoga classes in various styles including Hatha, Vinyasa, and Yin yoga',
         },
         {
@@ -193,12 +193,12 @@ export const PACKAGES = {
         'Team on hand 24/7 taking care of your every need',
         '7 nights accommodation at our Taghazout retreat',
         'Healthy breakfast, packed lunch, and evening meals daily',
-        '5 x 1 hour sunrise yoga every day with Linnea',
+        '5 x 1 hour sunrise yoga every day',
         '5 x 1 hour PM yoga class (Hatha, Vinyasa, Yin) with local yoga teacher',
         'Daily transport to the beaches',
         'Surf coaching sessions available (can be added)',
         'Therapeutic massage sessions available (can be added)',
-        'Agadir Airport transfers',
+        'Airport Transfers Available to Book',
       ],
 
       experiences: [
@@ -218,9 +218,9 @@ export const PACKAGES = {
 
       transformation: {
         title: 'Your 7-Day Yoga Journey',
-        description: 'This retreat is designed for complete beginners through experienced yoga practitioners. Whether you\'ve never been to a yoga class or have years of practice, Linnea and our team meet you exactly where you are and guide your transformation.',
+        description: 'This retreat is designed for complete beginners through experienced yoga practitioners. Whether you\'ve never been to a yoga class or have years of practice, our experienced teachers and team meet you exactly where you are and guide your transformation.',
         dayInLife: [
-          'Sunrise yoga with Linnea as the sun rises over the Atlantic',
+          'Sunrise yoga as the sun rises over the Atlantic',
           'Nourishing breakfast with ocean views',
           'Free time to explore, relax, or add surf sessions',
           'Healthy packed lunch',
@@ -251,7 +251,7 @@ export const EXPERIENCES = {
     {
       id: 'massage',
       title: 'Therapeutic Massage (Add-On)',
-      description: 'Professional massage sessions designed specifically for surfers and yogis. Perfect for sore muscles, deep relaxation, and recovery after your active days on the waves. Book additional sessions with Linnea to enhance your retreat experience.',
+      description: 'Professional massage sessions designed specifically for surfers and yogis. Perfect for sore muscles, deep relaxation, and recovery after your active days on the waves. Book additional sessions to enhance your retreat experience.',
       benefits: ['Deep muscle recovery', 'Improved flexibility', 'Stress relief', 'Enhanced circulation'],
     },
     {
@@ -505,7 +505,7 @@ export const CONTACT = {
   sectionSubtitle: 'Have questions? We\'d love to hear from you',
 
   info: {
-    email: 'hello@asanandsurf.com',
+    email: 'solhsurf@gmail.com',
     phone: '+212 123-456-789',
     location: 'Taghazout, Morocco',
     socialMedia: {
@@ -574,7 +574,7 @@ export const FOOTER = {
 
   contact: {
     title: 'Contact',
-    email: 'hello@asanandsurf.com',
+    email: 'solhsurf@gmail.com',
     phone: '+212 123-456-789',
     location: 'Taghazout, Morocco',
   },
@@ -660,7 +660,7 @@ export const DAY_TIMELINES = {
     activities: [
       {
         time: '6:30 AM',
-        title: 'Sunrise Yoga with Linnea',
+        title: 'Sunrise Yoga',
         description: '1 hour comprehensive morning practice to start your day',
         iconType: 'sunrise' as const,
         iconColor: 'lavender' as const,

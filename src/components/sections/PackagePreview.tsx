@@ -37,7 +37,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFirst }) => {
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onClick={() => setIsHovered(!isHovered)}
-      className="relative overflow-hidden rounded-3xl shadow-2xl cursor-pointer h-[500px] lg:h-[600px]"
+      className="relative overflow-hidden rounded-3xl shadow-2xl cursor-pointer min-h-[500px] h-auto lg:h-[600px]"
       whileHover={{ y: -8 }}
     >
       {/* Background Image */}
@@ -96,7 +96,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFirst }) => {
             </div>
           </div>
 
-          {/* Hover Overlay - Description & CTA */}
+          {/* Hover Overlay - Description & CTA (Hidden on mobile unless clicked) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{
@@ -104,7 +104,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFirst }) => {
               y: isHovered ? 0 : 20,
             }}
             transition={{ duration: 0.3 }}
-            className="space-y-4"
+            className={`space-y-4 ${isHovered ? 'block' : 'hidden lg:block'}`}
           >
             {/* Dark overlay background for description */}
             <div className="p-6 bg-sand-900/90 backdrop-blur-sm rounded-2xl">
@@ -113,7 +113,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFirst }) => {
               </p>
             </div>
 
-            {/* View More Button */}
+            {/* View Full Details Button (shown on hover/click) */}
             <Link to={`/packages#${pkg.id}`}>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -126,21 +126,20 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFirst }) => {
             </Link>
           </motion.div>
 
-          {/* Non-Hover CTA - Shows when not hovered */}
-          {!isHovered && (
-            <motion.div
-              initial={{ opacity: 1 }}
-              animate={{ opacity: isHovered ? 0 : 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Link to={`/packages#${pkg.id}`}>
-                <button className="w-full bg-white/90 text-ocean-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:bg-white transition-colors duration-300 flex items-center justify-center gap-2 mt-4">
-                  View More
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </Link>
-            </motion.div>
-          )}
+          {/* Always-Visible CTA on Mobile - Shows when not hovered on desktop */}
+          <motion.div
+            initial={{ opacity: 1 }}
+            animate={{ opacity: isHovered ? 0 : 1 }}
+            transition={{ duration: 0.3 }}
+            className={isHovered ? 'hidden' : 'block'}
+          >
+            <Link to={`/packages#${pkg.id}`}>
+              <button className="w-full bg-white/90 text-ocean-600 px-6 py-3 lg:px-8 lg:py-4 rounded-xl font-bold text-base lg:text-lg shadow-xl hover:bg-white transition-colors duration-300 flex items-center justify-center gap-2 mt-4">
+                View Full Details
+                <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5" />
+              </button>
+            </Link>
+          </motion.div>
         </div>
       </div>
     </motion.div>
