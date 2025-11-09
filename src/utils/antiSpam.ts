@@ -111,7 +111,10 @@ export const performSpamCheck = (
   // Check rate limiting
   const rateLimitCheck = checkRateLimit();
   if (!rateLimitCheck.isAllowed) {
-    return rateLimitCheck;
+    return {
+      isValid: false,
+      message: rateLimitCheck.message,
+    };
   }
 
   // Check form fill time
