@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="petalGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="petalGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#818cf8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="petalGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Center circle -->
+  <circle cx="50" cy="50" r="8" fill="url(#petalGradient2)" />
+
+  <!-- Petals arranged in a flower pattern -->
+  <!-- Top petal -->
+  <ellipse cx="50" cy="25" rx="8" ry="18" fill="url(#petalGradient1)" stroke="#5b21b6" stroke-width="1.5" />
+
+  <!-- Top-right petal -->
+  <ellipse cx="68" cy="32" rx="8" ry="18" fill="url(#petalGradient2)" stroke="#4c1d95" stroke-width="1.5" transform="rotate(45 68 32)" />
+
+  <!-- Right petal -->
+  <ellipse cx="75" cy="50" rx="8" ry="18" fill="url(#petalGradient3)" stroke="#1e40af" stroke-width="1.5" transform="rotate(90 75 50)" />
+
+  <!-- Bottom-right petal -->
+  <ellipse cx="68" cy="68" rx="8" ry="18" fill="url(#petalGradient3)" stroke="#1e40af" stroke-width="1.5" transform="rotate(135 68 68)" />
+
+  <!-- Bottom petal -->
+  <ellipse cx="50" cy="75" rx="8" ry="18" fill="url(#petalGradient2)" stroke="#4c1d95" stroke-width="1.5" transform="rotate(180 50 75)" />
+
+  <!-- Bottom-left petal -->
+  <ellipse cx="32" cy="68" rx="8" ry="18" fill="url(#petalGradient1)" stroke="#5b21b6" stroke-width="1.5" transform="rotate(225 32 68)" />
+
+  <!-- Left petal -->
+  <ellipse cx="25" cy="50" rx="8" ry="18" fill="url(#petalGradient1)" stroke="#5b21b6" stroke-width="1.5" transform="rotate(270 25 50)" />
+
+  <!-- Top-left petal -->
+  <ellipse cx="32" cy="32" rx="8" ry="18" fill="url(#petalGradient2)" stroke="#4c1d95" stroke-width="1.5" transform="rotate(315 32 32)" />
+</svg>

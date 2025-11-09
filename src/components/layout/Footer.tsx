@@ -66,8 +66,27 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Made by OptiveraAi */}
+        <div className="pt-8 border-t border-sand-200 flex justify-center mb-6">
+          <a
+            href="https://optivera.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 group"
+          >
+            <img
+              src="/optivera-logo.svg"
+              alt="OptiveraAi"
+              className="w-5 h-5 group-hover:scale-110 transition-transform duration-300"
+            />
+            <span className="text-sm font-medium text-gray-700 group-hover:text-indigo-600 transition-colors">
+              Made by OptiveraAi
+            </span>
+          </a>
+        </div>
+
         {/* Copyright */}
-        <div className="pt-8 border-t border-sand-200 text-center text-gray-600 text-sm">
+        <div className="text-center text-gray-600 text-sm">
           {FOOTER.legal.copyright}
         </div>
       </div>
