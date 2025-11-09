@@ -5,6 +5,7 @@ import { Check, Star, Sparkles, Coffee, Waves, Flower2, Users, Utensils, Bed, Ma
 import { PACKAGES, DAY_TIMELINES } from '../../constants/content';
 import Button from '../ui/Button';
 import DayTimeline from './DayTimeline';
+import WaveDivider from '../ui/WaveDivider';
 
 /**
  * IMMERSIVE PACKAGES REDESIGN
@@ -311,11 +312,6 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index, isTarget = 
                   </div>
                 )}
 
-                {/* Investment Heading */}
-                <h3 className="text-2xl lg:text-3xl font-serif text-sand-800 mb-2">
-                  Investment
-                </h3>
-
                 {/* Price Display */}
                 <div className="mb-6">
                   <div className="flex items-baseline justify-center gap-2 mb-2">
@@ -483,13 +479,30 @@ const Packages: React.FC<PackagesProps> = ({ targetPackageId }) => {
 
       {/* Package Sections */}
       {PACKAGES.packages.map((pkg, index) => (
-        <PackageSection
-          key={pkg.id}
-          pkg={pkg}
-          index={index}
-          isTarget={targetPackageId === pkg.id}
-        />
+        <React.Fragment key={pkg.id}>
+          <PackageSection
+            pkg={pkg}
+            index={index}
+            isTarget={targetPackageId === pkg.id}
+          />
+          {/* Wave divider between packages */}
+          {index < PACKAGES.packages.length - 1 && (
+            <WaveDivider
+              variant="gentle"
+              fillColor="#faf8f5"
+              backgroundColor="#faf8f5"
+              flip={index % 2 === 1}
+            />
+          )}
+        </React.Fragment>
       ))}
+
+      {/* Wave divider before timelines */}
+      <WaveDivider
+        variant="gentle"
+        fillColor="#faf8f5"
+        backgroundColor="#faf8f5"
+      />
 
       {/* What to Expect - Day-by-Day Timelines */}
       <div className="bg-cream-50">
@@ -514,6 +527,14 @@ const Packages: React.FC<PackagesProps> = ({ targetPackageId }) => {
           backgroundImage={DAY_TIMELINES.yogaRetreat.backgroundImage}
         />
       </div>
+
+      {/* Wave divider before final CTA */}
+      <WaveDivider
+        variant="gentle"
+        fillColor="#faf8f5"
+        backgroundColor="#faf8f5"
+        flip={true}
+      />
 
       {/* Final CTA - Single "Book Your Retreat" Button */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24">

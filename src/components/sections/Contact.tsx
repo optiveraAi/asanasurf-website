@@ -83,7 +83,7 @@ const Contact: React.FC = () => {
           {/* Left: Contact Info */}
           <div>
             <p className="text-gray-700 text-lg mb-8 leading-relaxed">
-              We'd love to hear from you! Whether you have questions about our retreats, want to discuss a custom package, or just want to learn more about Asana n Surf, reach out and we'll get back to you as soon as possible.
+              We'd love to hear from you! Whether you have questions about our retreats, want to discuss a custom package, or just want to learn more about AsanaSurf, reach out and we'll get back to you as soon as possible.
             </p>
 
             {/* Contact Details */}

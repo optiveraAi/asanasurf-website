@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -23,6 +23,12 @@
 
 @layer components {
   /* Custom component classes can go here */
+  .brand-name {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
   .btn-primary {
     @apply px-8 py-3 bg-ocean-500 text-white rounded-full font-medium
            transition-all duration-300 hover:bg-ocean-600 hover:scale-105

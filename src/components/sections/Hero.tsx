@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { ChevronDown } from 'lucide-react';
@@ -8,80 +8,84 @@ import Button from '../ui/Button';
 /**
  * Hero Section with:
  * - Full viewport height
- * - Parallax scrolling effect on background
- * - Smooth fade-in animation
+ * - Clean background
+ * - Smooth fade-in animations
  * - Call-to-action button
- * - Beautiful ocean background image from Unsplash
  */
 const Hero: React.FC = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  // Parallax scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <section
       id="home"
       className="relative h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image with Parallax */}
+      {/* Anchor Point Scene Background Image */}
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
-          transform: `translateY(${scrollY * 0.5}px)`,
-          transition: 'transform 0.1s ease-out',
+          backgroundImage: 'url(/anchor-point-scene.jpg)',
         }}
-      >
-        <img
-          src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=2000&q=80"
-          alt="Ocean waves at sunset"
-          className="w-full h-full object-cover"
-        />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-ocean-900/40 via-ocean-800/30 to-ocean-700/50" />
-      </div>
+      />
 
-      {/* Content */}
+      {/* Overlay for text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/30 z-0" />
+
+      {/* Content with Enhanced Styling */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        {/* Headline with Golden Glow Effect */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight"
+          className="text-4xl sm:text-5xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight"
+          style={{
+            textShadow: '0 0 20px rgba(218, 165, 32, 0.6), 0 0 40px rgba(255, 215, 0, 0.4), 0 2px 15px rgba(0, 0, 0, 0.8)',
+          }}
         >
           {HERO.headline}
         </motion.h1>
 
+        {/* Subheadline with Warm Glow */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-xl sm:text-2xl text-white/90 mb-10 font-light"
+          className="text-xl sm:text-2xl text-white mb-10 font-light"
+          style={{
+            textShadow: '0 0 15px rgba(218, 165, 32, 0.4), 0 2px 10px rgba(0, 0, 0, 0.7)',
+          }}
         >
           {HERO.subheadline}
         </motion.p>
 
+        {/* CTA Button with Golden Hover Effect */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
           <Link to="packages" smooth={true} duration={1000} offset={-80}>
-            <Button variant="primary" className="text-lg shadow-2xl">
-              {HERO.cta}
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                variant="primary"
+                className="text-lg shadow-2xl hover:shadow-[0_0_30px_rgba(218,165,32,0.6)] transition-all duration-300"
+                style={{
+                  background: 'linear-gradient(135deg, #FFD700 0%, #DAA520 100%)',
+                  boxShadow: '0 10px 40px rgba(218, 165, 32, 0.4)',
+                  color: '#1a1a1a',
+                  fontWeight: 'bold',
+                }}
+              >
+                {HERO.cta}
+              </Button>
+            </motion.div>
           </Link>
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator with Golden Glow */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -92,7 +96,11 @@ const Hero: React.FC = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="cursor-pointer text-white/80 hover:text-white transition-colors"
+            className="cursor-pointer text-white/90 hover:text-white transition-all duration-300"
+            style={{
+              filter: 'drop-shadow(0 0 10px rgba(218, 165, 32, 0.6))',
+            }}
+            whileHover={{ scale: 1.1 }}
           >
             <ChevronDown className="w-8 h-8" />
           </motion.div>

@@ -184,7 +184,7 @@ const GalleryPage: React.FC = () => {
               Gallery
             </h1>
             <p className="text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto">
-              Experience the magic of Asana n Surf through the eyes of our guests
+              Experience the magic of AsanaSurf through the eyes of our guests
             </p>
           </motion.div>
         </div>

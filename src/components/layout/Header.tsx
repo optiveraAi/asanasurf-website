@@ -67,7 +67,7 @@ const Header: React.FC = () => {
               className="flex items-center gap-2 cursor-pointer group"
             >
               <Waves className="w-8 h-8 text-ocean-500 group-hover:text-ocean-600 transition-colors" />
-              <span className="text-2xl font-serif font-bold text-gray-800 group-hover:text-ocean-600 transition-colors">
+              <span className="text-2xl font-bold text-gray-800 group-hover:text-ocean-600 transition-colors brand-name">
                 {SITE_NAME}
               </span>
             </Link>
@@ -137,7 +137,7 @@ const Header: React.FC = () => {
                 <div className="flex items-center justify-between p-6 border-b">
                   <div className="flex items-center gap-2">
                     <Waves className="w-6 h-6 text-ocean-500" />
-                    <span className="text-xl font-serif font-bold text-gray-800">
+                    <span className="text-xl font-bold text-gray-800 brand-name">
                       {SITE_NAME}
                     </span>
                   </div>

@@ -1,15 +1,16 @@
 /**
- * Content Constants for Asana n Surf Website
+ * Content Constants for AsanaSurf Website
  *
  * Centralized content management for all text across the site.
  * Organized by section for easy updates and maintenance.
  */
 
-export const SITE_NAME = "Asana n Surf";
+export const SITE_NAME = "AsanaSurf";
 
 // Navigation Links - Multi-page structure
 export const NAV_LINKS = [
   { id: 'home', label: 'Home', href: '/' },
+  { id: 'about', label: 'About', href: '/about' },
   { id: 'packages', label: 'Packages', href: '/packages' },
   { id: 'gallery', label: 'Gallery', href: '/gallery' },
   { id: 'book', label: 'Book Now', href: '/book' },
@@ -61,7 +62,7 @@ export const INTRODUCTION = {
 
   retreatOverview: {
     title: 'Your Retreat Experience',
-    description: 'At Asana n Surf, we\'ve crafted an experience that honors both the thrill of adventure and the peace of restoration. Each day is thoughtfully designed to energize and restore you.',
+    description: 'At AsanaSurf, we\'ve crafted an experience that honors both the thrill of adventure and the peace of restoration. Each day is thoughtfully designed to energize and restore you.',
     dailyStructure: [
       'Morning yoga practice to awaken body and mind',
       'Surf sessions with qualified instructors suited to your level',
@@ -84,7 +85,7 @@ export const PACKAGES = {
       headline: 'Find Your Flow',
       tagline: 'All-Inclusive Surf Adventure with Yoga',
       duration: '7 Days / 7 Nights',
-      price: '€950',
+      price: '€1050',
       priceNote: 'per person',
       featured: false,
       badge: undefined,
@@ -92,9 +93,9 @@ export const PACKAGES = {
       // Hero imagery
       heroImage: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1920&q=80',
       lifestyleImages: [
-        'https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1515238152791-8216bfdf89a7?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1502933691298-84fc14542831?auto=format&fit=crop&w=800&q=80',
+        '/surf-in-morocco.webp',
+        '/morocco-food.jpg',
+        '/surf-begginer.webp',
       ],
 
       story: 'All-inclusive surf experience with complimentary yoga sessions to enhance your performance and recovery. Perfect for those who want to master the waves while staying balanced. Our team is on hand 24/7 taking care of your every need, so you can focus on catching the perfect wave.',
@@ -162,7 +163,7 @@ export const PACKAGES = {
       // Hero imagery
       heroImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1920&q=80',
       lifestyleImages: [
-        'https://images.unsplash.com/photo-1588286840104-8957b019727f?auto=format&fit=crop&w=800&q=80',
+        '/beach-yoga.avif',
         'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
         'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
       ],
@@ -335,7 +336,7 @@ export const YOGA_FOR_SURFERS = {
 // Gallery Images (placeholders - to be replaced with real photos)
 export const GALLERY = {
   sectionTitle: 'Moments from Our Retreats',
-  sectionSubtitle: 'Experience the magic of Asana n Surf through the eyes of our guests',
+  sectionSubtitle: 'Experience the magic of AsanaSurf through the eyes of our guests',
 
   images: [
     {
@@ -432,7 +433,7 @@ export const BOOKING = {
         placeholder: 'Choose your retreat package',
         required: true,
         options: [
-          'Surf Adventure & Yoga - €950 (7 Days / 7 Nights)',
+          'Surf Adventure & Yoga - €1050 (7 Days / 7 Nights)',
           'Yoga Retreat Experience - €850 (7 Days / 7 Nights)',
         ],
       },
@@ -458,7 +459,7 @@ export const BOOKING = {
 
     successMessage: {
       title: 'Booking Request Received!',
-      message: 'Thank you for your interest in Asana n Surf. We\'ll review your request and get back to you within 24 hours to confirm availability and next steps.',
+      message: 'Thank you for your interest in AsanaSurf. We\'ll review your request and get back to you within 24 hours to confirm availability and next steps.',
     },
 
     errorMessage: {
@@ -594,7 +595,7 @@ export const FOOTER = {
 
 // SEO/Meta Information
 export const SEO = {
-  title: 'Asana n Surf - Yoga & Surf Retreats in Taghazout, Morocco',
+  title: 'AsanaSurf - Yoga & Surf Retreats in Taghazout, Morocco',
   description: 'Find your perfect balance between wave and om. Join us for transformative yoga and surf retreats in Taghazout, Morocco. All levels welcome.',
   keywords: 'yoga retreat, surf camp, Morocco, Taghazout, yoga and surf, wellness retreat, surf vacation, yoga vacation',
   ogImage: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=1200&q=80',

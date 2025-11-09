@@ -57,7 +57,7 @@ const Introduction: React.FC = () => {
           {/* Left: Image */}
           <motion.div variants={itemVariants} className="relative">
             <img
-              src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=800&q=80"
+              src="/morning-boats.webp"
               alt="Colorful streets of Taghazout, Morocco"
               className="w-full h-full object-cover rounded-2xl shadow-xl"
               loading="lazy"

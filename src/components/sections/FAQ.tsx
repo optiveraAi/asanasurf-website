@@ -24,11 +24,11 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: 'What should I pack?',
-    answer: 'Swimwear, sunscreen (reef-safe), comfortable clothes, light layers for evenings, and an open mind! We provide all surf equipment and yoga mats.',
+    answer: 'Swimwear, sunscreen, comfortable clothes, light layers for evenings, and an open mind! We provide all surf equipment and yoga mats.',
   },
   {
     question: 'What\'s the weather like in Taghazout?',
-    answer: 'Taghazout enjoys year-round sunshine with mild temperatures. Expect 20-25°C (68-77°F) most of the year. Best surf conditions are October-April.',
+    answer: 'Taghazout enjoys year-round sunshine with mild temperatures. Expect 20-25°C (68-77°F) during the winter months. Best surf conditions are October-April.',
   },
   {
     question: 'Can I come solo?',
@@ -121,8 +121,7 @@ const FAQ: React.FC = () => {
         {/* FAQ Accordion */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="bg-white rounded-2xl shadow-xl overflow-hidden"
         >

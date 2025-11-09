@@ -8,6 +8,7 @@ import Footer from './components/layout/Footer';
 
 // Pages
 import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
 import PackagesPage from './pages/PackagesPage';
 import GalleryPage from './pages/GalleryPage';
 import BookPage from './pages/BookPage';
@@ -56,6 +57,7 @@ function App() {
         <main className="min-h-screen">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/packages" element={<PackagesPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/book" element={<BookPage />} />

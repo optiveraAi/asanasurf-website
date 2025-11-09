@@ -34,7 +34,7 @@ export const sendBookingEmail = async (formData: {
       preferred_dates: formData.dates,
       number_of_guests: formData.guests,
       special_requests: formData.requests || 'None',
-      to_name: 'Asana n Surf Team',
+      to_name: 'AsanaSurf Team',
     };
 
     const response = await emailjs.send(
@@ -62,7 +62,7 @@ export const sendContactEmail = async (formData: {
       from_name: formData.name,
       from_email: formData.email,
       message: formData.message,
-      to_name: 'Asana n Surf Team',
+      to_name: 'AsanaSurf Team',
     };
 
     const response = await emailjs.send(
