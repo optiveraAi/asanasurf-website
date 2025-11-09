@@ -8,6 +8,7 @@ interface TextareaProps {
   rows?: number;
   className?: string;
   name?: string;
+  maxLength?: number;
 }
 
 /**
@@ -22,6 +23,7 @@ const Textarea: React.FC<TextareaProps> = ({
   rows = 4,
   className = '',
   name,
+  maxLength,
 }) => {
   return (
     <textarea
@@ -31,6 +33,7 @@ const Textarea: React.FC<TextareaProps> = ({
       onChange={onChange}
       required={required}
       rows={rows}
+      maxLength={maxLength}
       className={`w-full px-4 py-3 border-2 border-gray-200 rounded-lg
                   focus:border-ocean-500 focus:outline-none focus:ring-2 focus:ring-ocean-200
                   transition-all duration-200 resize-none ${className}`}
