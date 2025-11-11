@@ -11,39 +11,39 @@ import { GALLERY } from '../../constants/content';
  * - Scroll-triggered fade-in animation
  */
 const Gallery: React.FC = () => {
-  // Curated Unsplash images for the retreat theme
+  // Morocco retreat images - surf, yoga, culture & cuisine
   const images = [
     {
       url: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=800&q=80',
-      alt: 'Surfer riding a wave',
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
-      alt: 'Yoga practice at sunrise on the beach',
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?auto=format&fit=crop&w=800&q=80',
-      alt: 'Beautiful ocean sunset with surfers',
+      alt: 'Surfing the Atlantic waves in Morocco',
     },
     {
       url: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
-      alt: 'Yoga pose silhouette at sunset',
+      alt: 'Sunrise yoga on Moroccan beach',
     },
     {
-      url: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80',
-      alt: 'Surfboards lined up on the beach',
+      url: 'https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&w=800&q=80',
+      alt: 'Colorful streets of Morocco',
     },
     {
-      url: 'https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&w=800&q=80',
-      alt: 'Beach paradise with palm trees',
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80',
-      alt: 'Group yoga session on the beach',
+      url: 'https://images.unsplash.com/photo-1601372197210-00868f829a51?auto=format&fit=crop&w=800&q=80',
+      alt: 'Traditional Moroccan tajine dish',
     },
     {
       url: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=800&q=80',
-      alt: 'Perfect wave curling over blue water',
+      alt: 'Perfect surf break on Morocco coast',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
+      alt: 'Vibrant Moroccan souk market',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
+      alt: 'Peaceful yoga meditation in Morocco',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1562059392-096320bccc7e?auto=format&fit=crop&w=800&q=80',
+      alt: 'Traditional Moroccan mint tea',
     },
   ];
 
@@ -98,8 +98,6 @@ const Gallery: React.FC = () => {
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-ocean-900/0 group-hover:bg-ocean-900/20 transition-colors duration-300" />
             </motion.div>
           ))}
         </div>

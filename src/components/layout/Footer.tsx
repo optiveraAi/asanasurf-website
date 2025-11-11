@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Facebook, Mail, Waves } from 'lucide-react';
+import { Instagram, Facebook, Mail, Phone, Waves } from 'lucide-react';
 import { FOOTER, SITE_NAME, CONTACT } from '../../constants/content';
 
 /**
@@ -36,7 +36,13 @@ const Footer: React.FC = () => {
                 <Mail className="w-4 h-4" />
                 {CONTACT.info.email}
               </a>
-              <p>{CONTACT.info.phone}</p>
+              <a
+                href={`tel:${CONTACT.info.phone}`}
+                className="flex items-center gap-2 justify-center hover:text-ocean-500 transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                {CONTACT.info.phone}
+              </a>
             </div>
           </div>
 
@@ -69,13 +75,13 @@ const Footer: React.FC = () => {
         {/* Made by OptiveraAi */}
         <div className="pt-8 border-t border-sand-200 flex justify-center mb-6">
           <a
-            href="https://optivera.ai"
+            href="https://optiveraai.se"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 group"
           >
             <img
-              src="/optivera-logo.svg"
+              src="/optivera-ai-logo-new.png"
               alt="OptiveraAi"
               className="w-5 h-5 group-hover:scale-110 transition-transform duration-300"
             />

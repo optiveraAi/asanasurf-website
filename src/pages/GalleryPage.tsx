@@ -20,134 +20,59 @@ interface GalleryImage {
 }
 
 const GALLERY_IMAGES: GalleryImage[] = [
-  // Surfing
   {
     id: 1,
-    url: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Surfer riding wave in Taghazout',
-    category: 'surfing',
+    url: '/ASANA-taghazout-boats.jpg',
+    alt: 'Taghazout boats',
+    category: 'location',
   },
   {
     id: 2,
-    url: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Perfect wave breaking',
-    category: 'surfing',
+    url: '/ASANA-taghazout-street.jpg',
+    alt: 'Taghazout street',
+    category: 'location',
   },
   {
     id: 3,
-    url: 'https://images.unsplash.com/photo-1515238152791-8216bfdf89a7?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Group surf lesson',
-    category: 'surfing',
+    url: '/ASANA-blue-street.jpg',
+    alt: 'Blue street Morocco',
+    category: 'location',
   },
   {
     id: 4,
-    url: 'https://images.unsplash.com/photo-1502933691298-84fc14542831?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Surfboards on beach',
-    category: 'surfing',
+    url: '/ASANA-maroc-architecture.jpg',
+    alt: 'Morocco architecture',
+    category: 'location',
   },
-
-  // Yoga
   {
     id: 5,
-    url: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Sunrise yoga on the beach',
-    category: 'yoga',
+    url: '/ASANA-street-grill.jpg',
+    alt: 'Street grill',
+    category: 'activities',
   },
   {
     id: 6,
-    url: 'https://images.unsplash.com/photo-1588286840104-8957b019727f?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Group yoga session',
-    category: 'yoga',
+    url: '/ASANA-street-food.jpg',
+    alt: 'Street food',
+    category: 'activities',
   },
   {
     id: 7,
-    url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Meditation at sunset',
-    category: 'yoga',
+    url: '/ASANA-street-boards.jpg',
+    alt: 'Street boards',
+    category: 'location',
   },
   {
     id: 8,
-    url: 'https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Yoga pose by the ocean',
-    category: 'yoga',
+    url: '/ASANA-souk-spices.jpg',
+    alt: 'Souk spices',
+    category: 'activities',
   },
-
-  // Location
   {
     id: 9,
-    url: 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Taghazout village streets',
-    category: 'location',
-  },
-  {
-    id: 10,
-    url: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Ocean view from Taghazout',
-    category: 'location',
-  },
-  {
-    id: 11,
-    url: 'https://images.unsplash.com/photo-1451772741724-d20990422508?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Sunset over Atlantic',
-    category: 'location',
-  },
-  {
-    id: 12,
-    url: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Beach landscape',
-    category: 'location',
-  },
-
-  // Activities
-  {
-    id: 13,
-    url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Exploring local markets',
-    category: 'activities',
-  },
-  {
-    id: 14,
-    url: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Moroccan cuisine',
-    category: 'activities',
-  },
-  {
-    id: 15,
-    url: 'https://images.unsplash.com/photo-1608632725512-3060e42dbdfe?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Beach bonfire gathering',
-    category: 'activities',
-  },
-  {
-    id: 16,
-    url: 'https://images.unsplash.com/photo-1544551763-92ed23f86b33?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Souk market experience',
-    category: 'activities',
-  },
-
-  // Accommodations
-  {
-    id: 17,
-    url: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Surf camp accommodation',
-    category: 'accommodations',
-  },
-  {
-    id: 18,
-    url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Cozy room interior',
-    category: 'accommodations',
-  },
-  {
-    id: 19,
-    url: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Outdoor terrace',
-    category: 'accommodations',
-  },
-  {
-    id: 20,
-    url: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Relaxation area',
-    category: 'accommodations',
+    url: '/ASANA-surfer-picture.jpg',
+    alt: 'Surfer',
+    category: 'surfing',
   },
 ];
 
@@ -184,7 +109,7 @@ const GalleryPage: React.FC = () => {
               Gallery
             </h1>
             <p className="text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto">
-              Experience the magic of AsanaSurf through the eyes of our guests
+              Experience the wonders of africa
             </p>
           </motion.div>
         </div>
@@ -235,9 +160,6 @@ const GalleryPage: React.FC = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-sand-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <p className="text-white font-medium text-sm">{image.alt}</p>
-                </div>
               </motion.div>
             ))}
           </AnimatePresence>

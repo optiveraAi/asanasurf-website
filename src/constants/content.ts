@@ -85,7 +85,7 @@ export const PACKAGES = {
       headline: 'Find Your Flow',
       tagline: 'All-Inclusive Surf Adventure with Yoga',
       duration: '7 Days / 7 Nights',
-      price: '€1050',
+      price: '€1550',
       priceNote: 'per person',
       featured: false,
       badge: undefined,
@@ -155,7 +155,7 @@ export const PACKAGES = {
       headline: 'Find Your Balance',
       tagline: 'Comprehensive Yoga Retreat by the Ocean',
       duration: '7 Days / 7 Nights',
-      price: '€850',
+      price: '€1350',
       priceNote: 'per person',
       featured: false,
       badge: undefined,
@@ -336,7 +336,7 @@ export const YOGA_FOR_SURFERS = {
 // Gallery Images (placeholders - to be replaced with real photos)
 export const GALLERY = {
   sectionTitle: 'Moments from Our Retreats',
-  sectionSubtitle: 'Experience the magic of AsanaSurf through the eyes of our guests',
+  sectionSubtitle: 'Experience the wonders of africa',
 
   images: [
     {
@@ -433,8 +433,8 @@ export const BOOKING = {
         placeholder: 'Choose your retreat package',
         required: true,
         options: [
-          'Surf Adventure & Yoga - €1050 (7 Days / 7 Nights)',
-          'Yoga Retreat Experience - €850 (7 Days / 7 Nights)',
+          'Surf Adventure & Yoga - €1550 (7 Days / 7 Nights)',
+          'Yoga Retreat Experience - €1350 (7 Days / 7 Nights)',
         ],
       },
       dates: {
@@ -506,7 +506,7 @@ export const CONTACT = {
 
   info: {
     email: 'solhsurf@gmail.com',
-    phone: '+212 123-456-789',
+    phone: '073-993 45 42',
     location: 'Taghazout, Morocco',
     socialMedia: {
       instagram: '@asanandsurf',
@@ -575,7 +575,7 @@ export const FOOTER = {
   contact: {
     title: 'Contact',
     email: 'solhsurf@gmail.com',
-    phone: '+212 123-456-789',
+    phone: '073-993 45 42',
     location: 'Taghazout, Morocco',
   },
 
