@@ -13,20 +13,24 @@ interface TripDateCardProps {
   trip: Trip;
   selected: boolean;
   onChange: () => void;
+  backgroundImage?: string;
 }
 
 /**
  * Trip Date Card Component
  *
- * Large clickable card for trip date selection
+ * Compact clickable card for trip date selection with background image
  * Features:
  * - Radio button (hidden but accessible)
- * - Visual card with date, location, duration
+ * - Background image based on selected package
+ * - White text with backdrop for visibility
+ * - White outline border
+ * - Business card layout with image on right
  * - Selected state styling
  * - Hover effects and animations
  * - Fully responsive
  */
-const TripDateCard: React.FC<TripDateCardProps> = ({ trip, selected, onChange }) => {
+const TripDateCard: React.FC<TripDateCardProps> = ({ trip, selected, onChange, backgroundImage }) => {
   return (
     <motion.label
       initial={{ opacity: 0, y: 10 }}
@@ -46,90 +50,118 @@ const TripDateCard: React.FC<TripDateCardProps> = ({ trip, selected, onChange })
       <motion.div
         whileHover={{ scale: 1.01, y: -2 }}
         whileTap={{ scale: 0.99 }}
-        className={`
-          relative
-          p-6
-          rounded-xl
-          border-2
-          transition-all
-          duration-300
-          ${
-            selected
-              ? 'border-ocean-500 bg-ocean-50 shadow-lg shadow-ocean-200/50'
-              : 'border-gray-200 bg-white hover:border-ocean-300 hover:shadow-md'
-          }
-        `}
+        className="relative overflow-hidden"
       >
-        {/* Selected Checkmark */}
-        {selected && (
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-            className="absolute top-4 right-4"
-          >
-            <CheckCircle className="w-6 h-6 text-ocean-600 fill-ocean-100" />
-          </motion.div>
-        )}
-
-        {/* Date Range - Prominent */}
-        <div className="mb-4">
-          <p
-            className={`
-              text-2xl
-              sm:text-3xl
-              font-bold
-              ${selected ? 'text-ocean-700' : 'text-gray-800'}
-            `}
-          >
-            {trip.dateRange}
-          </p>
-        </div>
-
-        {/* Location and Duration */}
-        <div className="space-y-2">
-          {/* Location */}
-          <div className="flex items-center gap-2">
-            <MapPin
-              className={`w-5 h-5 flex-shrink-0 ${
-                selected ? 'text-ocean-600' : 'text-gray-500'
-              }`}
-            />
-            <p
-              className={`text-base sm:text-lg ${
-                selected ? 'text-ocean-700 font-medium' : 'text-gray-700'
-              }`}
+        <div
+          className={`
+            relative
+            h-32
+            sm:h-36
+            rounded-xl
+            border-3
+            transition-all
+            duration-300
+            overflow-hidden
+            ${
+              selected
+                ? 'border-white shadow-lg shadow-ocean-400/50'
+                : 'border-white hover:border-white hover:shadow-md'
+            }
+          `}
+          style={{
+            borderWidth: '3px',
+          }}
+        >
+          {/* Background Image - Positioned right with gradient overlay */}
+          {backgroundImage && (
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${backgroundImage})`,
+                backgroundPosition: '65% center',
+              }}
             >
-              {trip.location}
-            </p>
+              {/* Dark gradient overlay for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+            </div>
+          )}
+
+          {/* Fallback background if no image */}
+          {!backgroundImage && (
+            <div className="absolute inset-0 bg-gradient-to-r from-ocean-600 to-ocean-400">
+              <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+            </div>
+          )}
+
+          {/* Content Container */}
+          <div className="relative z-10 h-full flex items-center p-4 sm:p-5">
+            {/* Text Content - Left Side */}
+            <div className="flex-1 space-y-2">
+              {/* Date Range - Prominent */}
+              <p
+                className="text-lg sm:text-xl font-bold text-white"
+                style={{
+                  textShadow: '0 2px 8px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.8)',
+                }}
+              >
+                {trip.dateRange}
+              </p>
+
+              {/* Location and Duration */}
+              <div className="space-y-1">
+                {/* Location */}
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 flex-shrink-0 text-white drop-shadow-lg" />
+                  <p
+                    className="text-sm sm:text-base text-white font-medium"
+                    style={{
+                      textShadow: '0 1px 4px rgba(0,0,0,0.6)',
+                    }}
+                  >
+                    {trip.location}
+                  </p>
+                </div>
+
+                {/* Duration */}
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4 flex-shrink-0 text-white drop-shadow-lg" />
+                  <p
+                    className="text-sm sm:text-base text-white font-medium"
+                    style={{
+                      textShadow: '0 1px 4px rgba(0,0,0,0.6)',
+                    }}
+                  >
+                    {trip.duration}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Selected Checkmark - Top Right */}
+            {selected && (
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                className="absolute top-3 right-3"
+              >
+                <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
+                  <CheckCircle className="w-6 h-6 text-white drop-shadow-lg" />
+                </div>
+              </motion.div>
+            )}
           </div>
 
-          {/* Duration */}
-          <div className="flex items-center gap-2">
-            <Calendar
-              className={`w-5 h-5 flex-shrink-0 ${
-                selected ? 'text-ocean-600' : 'text-gray-500'
-              }`}
+          {/* Selected indicator bar */}
+          {selected && (
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.3 }}
+              className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-ocean-400 via-white to-jungle-400"
             />
-            <p
-              className={`text-base sm:text-lg ${
-                selected ? 'text-ocean-700 font-medium' : 'text-gray-700'
-              }`}
-            >
-              {trip.duration}
-            </p>
-          </div>
+          )}
         </div>
-
-        {/* Selected indicator bar */}
-        {selected && (
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.3 }}
-            className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-ocean-400 via-ocean-500 to-jungle-400 rounded-b-xl"
-          />
-        )}
       </motion.div>
     </motion.label>
   );

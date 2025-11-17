@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
-import { BOOKING, AVAILABLE_TRIPS } from '../../constants/content';
+import { BOOKING, AVAILABLE_TRIPS, PACKAGES } from '../../constants/content';
 import { sendBookingEmail } from '../../utils/emailService';
 import { validateForm, sanitizeFormData, MAX_LENGTHS } from '../../utils/validation';
 import { recordFormStart, performSpamCheck, onFormSubmitSuccess, getHoneypotFieldProps } from '../../utils/antiSpam';
@@ -131,6 +131,24 @@ const Booking: React.FC = () => {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  // Determine background image based on selected package
+  const getTripBackgroundImage = () => {
+    const selectedPackageValue = formData.package;
+
+    // Check if Surf package is selected
+    if (selectedPackageValue.includes('Surf Adventure & Yoga')) {
+      return PACKAGES.packages[0].heroImage; // Surf package image
+    }
+
+    // Check if Yoga package is selected
+    if (selectedPackageValue.includes('Yoga Retreat Experience')) {
+      return PACKAGES.packages[1].heroImage; // Yoga package image
+    }
+
+    // Default fallback
+    return undefined;
   };
 
   const containerVariants = {
@@ -310,6 +328,7 @@ const Booking: React.FC = () => {
                       trip={trip}
                       selected={formData.dates === trip.id}
                       onChange={() => handleTripSelect(trip.id)}
+                      backgroundImage={getTripBackgroundImage()}
                     />
                   ))}
                 </div>
