@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
-import { BOOKING } from '../../constants/content';
+import { BOOKING, AVAILABLE_TRIPS } from '../../constants/content';
 import { sendBookingEmail } from '../../utils/emailService';
 import { validateForm, sanitizeFormData, MAX_LENGTHS } from '../../utils/validation';
 import { recordFormStart, performSpamCheck, onFormSubmitSuccess, getHoneypotFieldProps } from '../../utils/antiSpam';
 import Button from '../ui/Button';
 import Input from '../ui/Input';
 import Textarea from '../ui/Textarea';
+import TripDateCard from '../ui/TripDateCard';
 
 /**
  * Booking Form Section with:
@@ -56,6 +57,21 @@ const Booking: React.FC = () => {
     }
   };
 
+  const handleTripSelect = (tripId: string) => {
+    setFormData({
+      ...formData,
+      dates: tripId,
+    });
+
+    // Clear validation error for dates field
+    if (validationErrors.dates) {
+      setValidationErrors({
+        ...validationErrors,
+        dates: '',
+      });
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -81,7 +97,17 @@ const Booking: React.FC = () => {
     try {
       // SECURITY: Sanitize all form data before sending
       const sanitizedData = sanitizeFormData(formData);
-      const result = await sendBookingEmail(sanitizedData);
+
+      // Convert trip ID to readable format for email
+      const selectedTrip = AVAILABLE_TRIPS.find(trip => trip.id === formData.dates);
+      const emailData = {
+        ...sanitizedData,
+        dates: selectedTrip
+          ? `${selectedTrip.dateRange} - ${selectedTrip.location}`
+          : sanitizedData.dates,
+      };
+
+      const result = await sendBookingEmail(emailData);
 
       if (result.success) {
         setSubmitStatus('success');
@@ -272,27 +298,28 @@ const Booking: React.FC = () => {
                 )}
               </div>
 
-              {/* Dates & Guests Grid */}
-              <div className="grid sm:grid-cols-2 gap-6">
-                {/* Preferred Dates */}
-                <div>
-                  <label htmlFor="dates" className="block text-sm font-medium text-gray-700 mb-2">
-                    Preferred Dates <span className="text-red-500">*</span>
-                  </label>
-                  <Input
-                    type="text"
-                    name="dates"
-                    value={formData.dates}
-                    onChange={handleChange}
-                    placeholder={BOOKING.form.fields.dates.placeholder}
-                    maxLength={MAX_LENGTHS.dates}
-                    required
-                  />
-                  {validationErrors.dates && (
-                    <p className="mt-1 text-sm text-red-600">{validationErrors.dates}</p>
-                  )}
+              {/* Available Trip Selection */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-3">
+                  {BOOKING.form.fields.dates.label} <span className="text-red-500">*</span>
+                </label>
+                <div className="space-y-3">
+                  {AVAILABLE_TRIPS.map((trip) => (
+                    <TripDateCard
+                      key={trip.id}
+                      trip={trip}
+                      selected={formData.dates === trip.id}
+                      onChange={() => handleTripSelect(trip.id)}
+                    />
+                  ))}
                 </div>
+                {validationErrors.dates && (
+                  <p className="mt-2 text-sm text-red-600">{validationErrors.dates}</p>
+                )}
+              </div>
 
+              {/* Number of Guests */}
+              <div className="grid sm:grid-cols-2 gap-6">
                 {/* Number of Guests */}
                 <div>
                   <label htmlFor="guests" className="block text-sm font-medium text-gray-700 mb-2">

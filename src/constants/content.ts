@@ -14,6 +14,16 @@ export const NEXT_TRIP = {
   dates: 'March 15-22, 2026',
 } as const;
 
+// Available Trips - For booking form date selection
+export const AVAILABLE_TRIPS = [
+  {
+    id: 'march-2026-taghazout',
+    dateRange: 'March 15-22, 2026',
+    location: 'Taghazout, Morocco',
+    duration: '7 Days / 6 Nights',
+  },
+] as const;
+
 // Navigation Links - Multi-page structure
 export const NAV_LINKS = [
   { id: 'home', label: 'Home', href: '/' },
@@ -445,8 +455,7 @@ export const BOOKING = {
         ],
       },
       dates: {
-        label: 'Preferred Dates',
-        placeholder: 'e.g., March 15-22, 2025',
+        label: 'Available Trip',
         required: true,
       },
       guests: {
