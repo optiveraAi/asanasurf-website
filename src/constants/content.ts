@@ -7,6 +7,13 @@
 
 export const SITE_NAME = "AsanaSurf";
 
+// Next Trip Banner - Upcoming retreat information
+export const NEXT_TRIP = {
+  available: true, // Set to false to hide the banner
+  destination: 'Taghazout, Morocco',
+  dates: 'March 15-22, 2026',
+} as const;
+
 // Navigation Links - Multi-page structure
 export const NAV_LINKS = [
   { id: 'home', label: 'Home', href: '/' },

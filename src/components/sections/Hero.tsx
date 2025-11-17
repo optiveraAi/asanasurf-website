@@ -4,6 +4,7 @@ import { Link } from 'react-scroll';
 import { ChevronDown } from 'lucide-react';
 import { HERO } from '../../constants/content';
 import Button from '../ui/Button';
+import NextTripBanner from './NextTripBanner';
 
 /**
  * Hero Section with:
@@ -90,7 +91,7 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        className="absolute bottom-24 sm:bottom-28 left-1/2 transform -translate-x-1/2 z-10"
       >
         <Link to="about" smooth={true} duration={800}>
           <motion.div
@@ -106,6 +107,11 @@ const Hero: React.FC = () => {
           </motion.div>
         </Link>
       </motion.div>
+
+      {/* Next Trip Banner - Positioned at the very bottom */}
+      <div className="absolute bottom-2 sm:bottom-4 left-0 right-0 z-10">
+        <NextTripBanner />
+      </div>
     </section>
   );
 };
