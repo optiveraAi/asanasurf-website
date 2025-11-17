@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Calendar, CheckCircle } from 'lucide-react';
 
 interface Trip {
@@ -138,29 +138,35 @@ const TripDateCard: React.FC<TripDateCardProps> = ({ trip, selected, onChange, b
             </div>
 
             {/* Selected Checkmark - Top Right */}
-            {selected && (
-              <motion.div
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                className="absolute top-3 right-3"
-              >
-                <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
-                  <CheckCircle className="w-6 h-6 text-white drop-shadow-lg" />
-                </div>
-              </motion.div>
-            )}
+            <AnimatePresence>
+              {selected && (
+                <motion.div
+                  initial={{ scale: 0, rotate: -180, opacity: 0 }}
+                  animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                  exit={{ scale: 0, rotate: 180, opacity: 0 }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                  className="absolute top-3 right-3"
+                >
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
+                    <CheckCircle className="w-6 h-6 text-white drop-shadow-lg" />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           {/* Selected indicator bar */}
-          {selected && (
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.3 }}
-              className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-ocean-400 via-white to-jungle-400"
-            />
-          )}
+          <AnimatePresence>
+            {selected && (
+              <motion.div
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={{ scaleX: 1, opacity: 1 }}
+                exit={{ scaleX: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-ocean-400 via-white to-jungle-400"
+              />
+            )}
+          </AnimatePresence>
         </div>
       </motion.div>
     </motion.label>
