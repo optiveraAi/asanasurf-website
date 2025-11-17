@@ -58,13 +58,16 @@ const Booking: React.FC = () => {
   };
 
   const handleTripSelect = (tripId: string) => {
+    // Toggle selection: if same trip clicked, deselect it
+    const newDates = formData.dates === tripId ? '' : tripId;
+
     setFormData({
       ...formData,
-      dates: tripId,
+      dates: newDates,
     });
 
-    // Clear validation error for dates field
-    if (validationErrors.dates) {
+    // Clear validation error for dates field when selecting
+    if (newDates && validationErrors.dates) {
       setValidationErrors({
         ...validationErrors,
         dates: '',
