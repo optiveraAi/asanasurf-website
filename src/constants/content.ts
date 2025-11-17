@@ -513,7 +513,7 @@ export const CONTACT = {
 
   info: {
     email: 'solhsurf@gmail.com',
-    phone: '073-993 45 42',
+    phone: '+46 73-993 45 42',
     location: 'Taghazout, Morocco',
     socialMedia: {
       instagram: '@asanandsurf',
@@ -582,7 +582,7 @@ export const FOOTER = {
   contact: {
     title: 'Contact',
     email: 'solhsurf@gmail.com',
-    phone: '073-993 45 42',
+    phone: '+46 73-993 45 42',
     location: 'Taghazout, Morocco',
   },
 
