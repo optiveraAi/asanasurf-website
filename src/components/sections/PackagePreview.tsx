@@ -67,13 +67,6 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isFirst }) => {
               <Flower2 className="w-10 h-10 text-white" strokeWidth={1.5} />
             )}
           </motion.div>
-
-          {/* Badge - Only for Yoga package */}
-          {!isFirst && pkg.featured && (
-            <div className="px-4 py-2 bg-ocean-500 text-white rounded-full font-semibold text-sm shadow-lg">
-              Most Popular
-            </div>
-          )}
         </div>
 
         {/* Bottom Section - Package Info */}

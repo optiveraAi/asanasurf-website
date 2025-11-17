@@ -321,14 +321,6 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index, isTarget = 
           <div className="max-w-3xl mx-auto">
             <div className="bg-gradient-to-br from-cream-50 via-sand-50 to-cream-100 rounded-3xl p-10 lg:p-16 shadow-xl border border-sand-200/50">
               <div className="text-center">
-                {/* "Most Popular" badge for Yoga Retreat */}
-                {pkg.id === 'yoga-surf-retreat' && (
-                  <div className="inline-flex items-center gap-2 bg-ocean-500 text-white px-4 py-2 rounded-full mb-6 shadow-md">
-                    <Star className="w-4 h-4 fill-current" />
-                    <span className="text-sm font-semibold">Most Popular</span>
-                  </div>
-                )}
-
                 {/* Price Display */}
                 <div className="mb-6">
                   <div className="flex items-baseline justify-center gap-2 mb-2">
