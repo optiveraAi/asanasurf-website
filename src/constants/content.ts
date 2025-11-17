@@ -11,14 +11,14 @@ export const SITE_NAME = "AsanaSurf";
 export const NEXT_TRIP = {
   available: true, // Set to false to hide the banner
   destination: 'Taghazout, Morocco',
-  dates: 'March 15-22, 2026',
+  dates: 'March 20-27, 2026',
 } as const;
 
 // Available Trips - For booking form date selection
 export const AVAILABLE_TRIPS = [
   {
     id: 'march-2026-taghazout',
-    dateRange: 'March 15-22, 2026',
+    dateRange: 'March 20-27, 2026',
     location: 'Taghazout, Morocco',
     duration: '7 Days / 6 Nights',
   },
