@@ -22,42 +22,22 @@ const SURF_BRANDS: Logo[] = [
   {
     id: 'ripcurl',
     name: 'Rip Curl',
-    imageUrl: 'https://logo.clearbit.com/ripcurl.com'
-  },
-  {
-    id: 'billabong',
-    name: 'Billabong',
-    imageUrl: 'https://logo.clearbit.com/billabong.com'
+    imageUrl: 'https://logos-world.net/wp-content/uploads/2020/12/Rip-Curl-Logo.png'
   },
   {
     id: 'quiksilver',
     name: 'Quiksilver',
-    imageUrl: 'https://logo.clearbit.com/quiksilver.com'
-  },
-  {
-    id: 'hurley',
-    name: 'Hurley',
-    imageUrl: 'https://logo.clearbit.com/hurley.com'
-  },
-  {
-    id: 'ci',
-    name: 'Channel Islands',
-    imageUrl: 'https://logo.clearbit.com/cisurfboards.com'
+    imageUrl: 'https://logos-world.net/wp-content/uploads/2020/09/Quiksilver-Logo.png'
   },
   {
     id: 'fcs',
     name: 'FCS',
-    imageUrl: 'https://logo.clearbit.com/surffcs.com'
-  },
-  {
-    id: 'futures',
-    name: 'Futures Fins',
-    imageUrl: 'https://logo.clearbit.com/futuresfins.com'
+    imageUrl: 'https://media.fcs-surfing.com/image/upload/f_auto/v1/Website/2024/FCS_brandmark_logo_stacked_4x.png'
   },
   {
     id: 'isa',
     name: 'ISA',
-    imageUrl: 'https://logo.clearbit.com/isasurf.org'
+    imageUrl: 'https://www.isasurf.org/wp-content/uploads/2019/04/ISA-Logo-2019.png'
   },
 ];
 
@@ -156,20 +136,18 @@ const LogoLoop: React.FC = () => {
         }
 
         .logo-image {
-          height: 48px;
+          height: 64px;
           width: auto;
-          max-width: 180px;
+          max-width: 200px;
           object-fit: contain;
-          filter: grayscale(100%) brightness(1.1) contrast(0.9);
-          opacity: 0.7;
-          transition: opacity 300ms ease, filter 300ms ease;
+          opacity: 0.85;
+          transition: opacity 300ms ease, transform 300ms ease;
           user-select: none;
         }
 
-        /* Slightly reduce greyscale on hover for subtle color hint */
+        /* Full opacity and slight lift on hover */
         .logo-item:hover .logo-image {
-          filter: grayscale(80%) brightness(1.1) contrast(0.9);
-          opacity: 0.85;
+          opacity: 1;
         }
 
         /* Responsive adjustments */
@@ -179,8 +157,8 @@ const LogoLoop: React.FC = () => {
           }
 
           .logo-image {
-            height: 36px;
-            max-width: 140px;
+            height: 48px;
+            max-width: 160px;
           }
 
           .logo-item {

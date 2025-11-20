@@ -102,7 +102,7 @@ export const PACKAGES = {
       headline: 'Find Your Flow',
       tagline: 'All-Inclusive Surf Adventure with Yoga',
       duration: '7 Days / 6 Nights',
-      price: '€1000',
+      price: '€1250',
       priceNote: 'per person',
       accommodationNote: 'Based on double occupancy (2 people sharing)',
       featured: false,
@@ -173,7 +173,7 @@ export const PACKAGES = {
       headline: 'Find Your Balance',
       tagline: 'Comprehensive Yoga Retreat by the Ocean',
       duration: '7 Days / 6 Nights',
-      price: '€850',
+      price: '€1015',
       priceNote: 'per person',
       accommodationNote: 'Based on double occupancy (2 people sharing)',
       featured: false,
@@ -452,8 +452,8 @@ export const BOOKING = {
         placeholder: 'Choose your retreat package',
         required: true,
         options: [
-          'Surf Adventure & Yoga - €1000 (7 Days / 6 Nights)',
-          'Yoga Retreat Experience - €850 (7 Days / 6 Nights)',
+          'Surf Adventure & Yoga - €1250 (7 Days / 6 Nights)',
+          'Yoga Retreat Experience - €1015 (7 Days / 6 Nights)',
         ],
       },
       dates: {
