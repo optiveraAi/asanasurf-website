@@ -22,22 +22,22 @@ const SURF_BRANDS: Logo[] = [
   {
     id: 'ripcurl',
     name: 'Rip Curl',
-    imageUrl: 'https://logos-world.net/wp-content/uploads/2020/12/Rip-Curl-Logo.png'
+    imageUrl: 'https://logo.clearbit.com/ripcurl.com'
   },
   {
     id: 'quiksilver',
     name: 'Quiksilver',
-    imageUrl: 'https://logos-world.net/wp-content/uploads/2020/09/Quiksilver-Logo.png'
+    imageUrl: 'https://logo.clearbit.com/quiksilver.com'
   },
   {
     id: 'fcs',
     name: 'FCS',
-    imageUrl: 'https://media.fcs-surfing.com/image/upload/f_auto/v1/Website/2024/FCS_brandmark_logo_stacked_4x.png'
+    imageUrl: 'https://logo.clearbit.com/surffcs.com'
   },
   {
     id: 'isa',
     name: 'ISA',
-    imageUrl: 'https://www.isasurf.org/wp-content/uploads/2019/04/ISA-Logo-2019.png'
+    imageUrl: 'https://logo.clearbit.com/isasurf.org'
   },
 ];
 
