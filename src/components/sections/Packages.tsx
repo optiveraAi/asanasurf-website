@@ -330,6 +330,9 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index, isTarget = 
                     <span className="text-xl text-sand-700">{pkg.priceNote}</span>
                   </div>
                   <p className="text-lg text-sand-600">{pkg.duration}</p>
+                  {'accommodationNote' in pkg && pkg.accommodationNote && (
+                    <p className="text-sm text-sand-600 mt-2 italic">{pkg.accommodationNote}</p>
+                  )}
                 </div>
 
                 {/* Subtext */}
@@ -338,13 +341,6 @@ const PackageSection: React.FC<PackageSectionProps> = ({ pkg, index, isTarget = 
                     ? 'All-inclusive surf adventure with complimentary yoga sessions'
                     : 'Comprehensive yoga retreat with optional surf sessions'}
                 </p>
-
-                {/* Optional: Payment Info */}
-                <div className="pt-6 border-t border-sand-200">
-                  <p className="text-sm text-sand-600">
-                    Early bird discount available for bookings 3+ months in advance
-                  </p>
-                </div>
               </div>
             </div>
           </div>

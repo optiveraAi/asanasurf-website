@@ -40,7 +40,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: 'How do I get there?',
-    answer: 'We include Agadir Airport transfers in all packages. Fly into Agadir (AGA), and we\'ll handle the rest - it\'s just 30 minutes to Taghazout.',
+    answer: 'The nearest airport is Agadir Al Massira International Airport (AGA), located approximately 45 minutes from Taghazout. Airport transfers are available for €30 per person. There are two ATMs available in Taghazout village and at the airport for your convenience.',
   },
   {
     question: 'What if I need to cancel?',

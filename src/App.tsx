@@ -13,6 +13,7 @@ import PackagesPage from './pages/PackagesPage';
 import GalleryPage from './pages/GalleryPage';
 import BookPage from './pages/BookPage';
 import FAQPage from './pages/FAQPage';
+import TermsPage from './pages/TermsPage';
 
 /**
  * ScrollToTop Component
@@ -62,6 +63,7 @@ function App() {
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/book" element={<BookPage />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route path="/terms" element={<TermsPage />} />
           </Routes>
         </main>
 

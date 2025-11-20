@@ -104,6 +104,7 @@ export const PACKAGES = {
       duration: '7 Days / 6 Nights',
       price: '€1000',
       priceNote: 'per person',
+      accommodationNote: 'Based on double occupancy (2 people sharing)',
       featured: false,
       badge: undefined,
 
@@ -145,7 +146,7 @@ export const PACKAGES = {
         'Daily transport to the best beaches and surf spots',
         'Professional guide getting you to the best waves for your ability',
         'Complimentary yoga sessions (Vinyasa, Hatha, Yin) for surf prep and recovery',
-        'Airport Transfers Available to Book',
+        'Airport transfers available (€30 per person)',
       ],
 
       experiences: [
@@ -174,6 +175,7 @@ export const PACKAGES = {
       duration: '7 Days / 6 Nights',
       price: '€850',
       priceNote: 'per person',
+      accommodationNote: 'Based on double occupancy (2 people sharing)',
       featured: false,
       badge: undefined,
 
@@ -215,7 +217,7 @@ export const PACKAGES = {
         'Daily transport to the beaches',
         'Surf coaching sessions available (can be added)',
         'Therapeutic massage sessions available (can be added)',
-        'Airport Transfers Available to Book',
+        'Airport transfers available (€30 per person)',
       ],
 
       experiences: [
@@ -296,7 +298,7 @@ export const EXPERIENCES = {
     items: [
       'Accommodation at our Taghazout surf camp',
       'All meals at carefully selected local restaurants',
-      'Airport transfers (Agadir Al Massira Airport)',
+      'Airport transfers available (€30 per person)',
       'Surfboards and wetsuits for all surf sessions',
       'Yoga mats and props',
       'Qualified surf instructors and yoga teachers',
@@ -493,11 +495,11 @@ export const BOOKING = {
       },
       {
         question: 'What\'s included in the price?',
-        answer: 'All packages include accommodation, meals, surf and yoga instruction, equipment (boards and wetsuits), airport transfers, and select cultural experiences. Specific inclusions vary by package.',
+        answer: 'All packages include accommodation, meals, surf and yoga instruction, equipment (boards and wetsuits), and select cultural experiences. Airport transfers are available for €30 per person. Specific inclusions vary by package.',
       },
       {
         question: 'How do I get to Taghazout?',
-        answer: 'Fly into Agadir Al Massira International Airport (AGA). We provide airport transfers to and from the surf camp, approximately 45 minutes away.',
+        answer: 'The nearest airport is Agadir Al Massira International Airport (AGA), located approximately 45 minutes from Taghazout. Airport transfers are available for €30 per person. There are two ATMs available in Taghazout village and at the airport for your convenience.',
       },
       {
         question: 'What should I bring?',
@@ -604,9 +606,79 @@ export const FOOTER = {
     copyright: `© ${new Date().getFullYear()} ${SITE_NAME}. All rights reserved.`,
     links: [
       { label: 'Privacy Policy', href: '#' },
-      { label: 'Terms & Conditions', href: '#' },
+      { label: 'Terms & Conditions', href: '/terms' },
     ],
   },
+} as const;
+
+// Terms & Conditions
+export const TERMS_CONDITIONS = {
+  title: 'Terms & Conditions',
+  lastUpdated: 'January 2025',
+
+  sections: [
+    {
+      title: 'Booking & Deposits',
+      content: [
+        'When booking a course or holiday, a deposit of 20% is taken by Asana Surf.',
+        'A disclaimer form must be filled in and completed before a person can take part in any course. This must be done at the surf camp office in Taghazout. Asana Surf does not accept any liability for loss caused by failure to complete the disclaimer form.',
+        'Asana Surf requires 20% of the total course or holiday cost when booking. Asana Surf has the right to cancel a person\'s place on the course if full deposit payment is not received. Course reminders will not be sent.',
+      ],
+    },
+    {
+      title: 'Cancellations & Changes',
+      content: [
+        'Any cancellations or changes to your booking must be made in writing and will only be accepted from the date they are received by Asana Surf. Asana Surf only takes a 20% deposit at the time of booking. Upon your arrival in Morocco, Asana Surf is the responsible party for ensuring your safe delivery of your paid for Moroccan holiday or course.',
+        'The course or holiday deposit payment is non-refundable.',
+        'Refunds for cancellations are as follows:',
+        '• 4 weeks or more from course start date = full refund minus 20% deposit',
+        '• 2-3 weeks before course start date = 50% refund minus 20% deposit',
+        '• Less than 2 weeks to course start date = no refund',
+        'If the booking is changed more than 21 days prior to the course, Asana Surf will make every effort to change the requested booking. Less than 21 days prior to the start, Asana Surf reserves the right that no changes can be made.',
+      ],
+    },
+    {
+      title: 'Liability & Insurance',
+      content: [
+        'Asana Surf assumes no liability in respect of personal injury, loss, damage or third party claims which occur through no fault of its own or its instructors.',
+        'Asana Surf cannot accept responsibility for any of the reasons cited above that a person may incur whilst participating in any of the activities unless Asana Surf can be proven negligent.',
+        'All participants accept that they participate at their own risk and confirm that they have their own private health insurance to cover any such injury, loss or damage or have chosen not to take out such insurance even though they understand that this is their responsibility and specifically recommended by Asana Surf.',
+        'All participants must have declared any medical conditions that may affect their own or others safety whilst participating and accept that Asana Surf does not accept any responsibility for any conditions not disclosed.',
+      ],
+    },
+    {
+      title: 'Equipment & Safety',
+      content: [
+        'Asana Surf equipment will be used for the activity, unless previously agreed. If a participant should damage or lose any Asana Surf equipment, they agree to inform a member of Asana Surf staff and understand that they will have to pay for any repairs or replacements.',
+        'Participants agree to abide by all decisions and adhere to all instructions that Asana Surf staff and instructors make whilst under their supervision. This includes sea-related conditions beyond Asana Surf control (flat days, fog, dangerous sea conditions etc.). In this case, should a course/lesson be cancelled, a credit note will be issued which is valid for one year from the date of cancellation. No refunds will be issued.',
+      ],
+    },
+    {
+      title: 'Accommodation',
+      content: [
+        'The accommodation providers listed on the website act as a guide only to assist in booking accommodation. No responsibility is taken by Asana Surf for booking any accommodation and cannot be held responsible for any aspect of or problems arising from accommodation arrangements.',
+      ],
+    },
+    {
+      title: 'Pricing & Changes',
+      content: [
+        'The prices printed on this website are valid at the time of publication. Asana Surf reserves the right to increase or reduce any of the prices any time after publication. Any changes will be made clear at the time of booking. Asana Surf reserves the right to cancel or change course dates subject to notification of those persons booked on to course.',
+      ],
+    },
+    {
+      title: 'Data Protection',
+      content: [
+        'Permission is given for participant\'s contact details to be entered into the Asana Surf database and held in accordance with the UK Data Protection Act 1998. This information will not be forwarded to third parties.',
+      ],
+    },
+    {
+      title: 'Credit Notes & Refunds',
+      content: [
+        'The credit note issued for a cancellation is valid for one year from the date of issue, and only applies to a surf session. It may not be exchanged or used to purchase items in the shop to the value of the voucher.',
+        'Asana Surf will offer a refund only if the purchased item is faulty. In all other cases an exchange will be offered or a credit note will be issued. In both cases the original receipt must be shown.',
+      ],
+    },
+  ],
 } as const;
 
 // SEO/Meta Information

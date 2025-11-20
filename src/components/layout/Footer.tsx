@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Mail, Phone, Waves } from 'lucide-react';
 import { FOOTER, SITE_NAME, CONTACT } from '../../constants/content';
 
@@ -91,9 +92,22 @@ const Footer: React.FC = () => {
           </a>
         </div>
 
-        {/* Copyright */}
-        <div className="text-center text-gray-600 text-sm">
-          {FOOTER.legal.copyright}
+        {/* Copyright & Legal Links */}
+        <div className="text-center text-gray-600 text-sm space-y-2">
+          <p>{FOOTER.legal.copyright}</p>
+          <div className="flex items-center justify-center gap-4">
+            {FOOTER.legal.links.map((link, index) => (
+              <React.Fragment key={index}>
+                {index > 0 && <span className="text-gray-400">•</span>}
+                <Link
+                  to={link.href}
+                  className="hover:text-ocean-500 transition-colors underline"
+                >
+                  {link.label}
+                </Link>
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
